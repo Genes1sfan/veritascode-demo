@@ -192,20 +192,23 @@ em{font-style:italic;color:var(--accent)}
 /* ------------ hero ------------ */
 .hero{padding:96px 0 0;position:relative;overflow:visible}
 .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center;padding-bottom:80px}
-.hero-copy{max-width:640px;position:relative;z-index:2}
+.hero-copy{max-width:640px;position:relative;z-index:3}
 .hero h1{
   font-family:var(--display);font-weight:600;
   font-size:var(--h1);line-height:0.98;letter-spacing:-0.03em;
-  max-width:22ch;               /* fits DE "gleich jenseits der Grenze" and DA "lige på den anden side af grænsen" without clipping */
-  overflow-wrap:break-word;
-  hyphens:auto;
+  max-width:18ch;
 }
 .hero h1 em{
   font-style:italic;font-weight:500;
   background:linear-gradient(90deg,var(--accent-ink),var(--accent));
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  padding-right:.25em;margin-right:-.25em;  /* generous overshoot so italic glyph strokes aren't clipped by the text-gradient mask */
+  padding-right:.12em;margin-right:-.12em;
 }
+/* EN headline is short and fits at the base --h1. DE and DA phrases are 25–40%
+   longer per line — instead of wrapping into extra lines we scale the headline
+   down so the same 3-line silhouette as EN is preserved at all breakpoints. */
+html[lang="de"] .hero h1{ font-size: calc(var(--h1) * 0.82); max-width: 22ch; }
+html[lang="da"] .hero h1{ font-size: calc(var(--h1) * 0.70); max-width: 26ch; }
 .hero-sub{
   margin-top:36px;font-size:var(--lead);line-height:1.5;
   color:var(--ink-2);max-width:52ch;text-wrap:pretty;
@@ -256,9 +259,11 @@ em{font-style:italic;color:var(--accent)}
   animation:float 5s ease-in-out infinite;
 }
 .hv-chip b{color:var(--ink);font-weight:600;margin-right:2px}
-.hv-chip-1{top:8%;left:-6%;animation-delay:0s}
-.hv-chip-2{bottom:18%;left:-4%;animation-delay:1.5s}
-.hv-chip-3{top:40%;right:-4%;animation-delay:3s}
+/* No negative-left overhang: the chips used to stick ~6% out of the hero-visual column
+   and cover the last word of the left-column h1 on longer languages (DE "gleich", DA "den"). */
+.hv-chip-1{top:8%;left:2%;animation-delay:0s;z-index:1}
+.hv-chip-2{bottom:18%;left:2%;animation-delay:1.5s;z-index:1}
+.hv-chip-3{top:40%;right:-4%;animation-delay:3s;z-index:1}
 .hv-dot{width:6px;height:6px;border-radius:50%;background:#2f9e44}
 .hv-dot.dot-amber{background:#f59f00}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
