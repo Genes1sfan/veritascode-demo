@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,13 +29,1465 @@
   };
 </script>
 
-<script type="text/babel" src="src/i18n.jsx?v=15"></script>
-<script type="text/babel" src="src/parts.jsx?v=15"></script>
-<script type="text/babel" src="src/sections.jsx?v=15"></script>
-<script type="text/babel" src="src/pricing.jsx?v=15"></script>
-<script type="text/babel" src="src/desk.jsx?v=15"></script>
-<script type="text/babel" src="src/map.jsx?v=15"></script>
-<script type="text/babel" src="src/onboarding.jsx?v=15"></script>
-<script type="text/babel" src="src/app.jsx?v=15"></script>
-</body>
+<script type="text/babel" data-presets="react">
+
+// ===== src/i18n.jsx =====
+// i18n — translations + language context
+
+const LOCALES = {
+  EN: {
+    htmlLang: "en",
+    nav: { services:"Services", approach:"Approach", results:"Results", pricing:"Pricing", faq:"FAQ", cta:"Book a call" },
+    hero: {
+      eyebrow: "Near-shore IT pods · EU time zones",
+      h1_a: "Your IT team,", h1_em: "just across", h1_b: "the border.",
+      sub: "Dedicated helpdesk and IT operations pods for European SMBs. Fluent English, German, French and Danish — in your timezone, at Moldova rates.",
+      ctaPrimary: "Book a discovery call",
+      kpi: [
+        { lbl:"vs. local EU MSPs" },
+        { lbl:"Median first reply" },
+        { lbl:"Language level" },
+        { lbl:"Same hours" },
+      ],
+    },
+    ticker: [
+      "Berlin · ticket #4821 resolved · 2m 14s",
+      "Copenhagen · M365 tenant patched",
+      "Rotterdam · firewall rules pushed",
+      "Vienna · CSAT 5 / 5",
+      "Munich · Business Central sync green",
+      "Dublin · on-call pod · all clear",
+    ],
+    heroChips: [
+      {city:"Berlin", text:"ticket resolved · 2m"},
+      {city:"Copenhagen", text:"M365 sync"},
+      {city:"Amsterdam", text:"all clear"},
+    ],
+    services: {
+      eyebrow:"Services",
+      h2_a:"Four things we run", h2_em:"quietly,", h2_b:"every day.",
+      bespokeLabel:"Need something bespoke?",
+      bespokeLink:"Tell us the shape of it",
+      items: [
+        { title:"Helpdesk, done by name",
+          desc:"L1 and L2 support delivered by a small, named pod that learns your people and your stack. Chat, email, phone. Escalations with full context, not a ticket toss.",
+          tags:["Chat","Email","Phone","Slack / Teams"] },
+        { title:"M365 & Workspace",
+          desc:"Tenant administration, identity, device posture, mailbox hygiene and licence true-ups. Governance without the jargon, reviews without the deck.",
+          tags:["Entra ID","Intune","Exchange","Workspace"] },
+        { title:"Network, endpoint, cloud",
+          desc:"Firewalls, Wi-Fi, MDM, patching. AWS, Azure or GCP day-2 ops. Quiet infrastructure that gets right-sized before renewal season, not after.",
+          tags:["Fortinet","Meraki","AWS","Azure"] },
+        { title:"ERP, CRM & in-house apps",
+          desc:"Second-line support for Business Central, NetSuite, HubSpot, Salesforce and the app three founders ago built. We read code, write runbooks, stay on.",
+          tags:["BC / NAV","NetSuite","HubSpot","Legacy"] },
+      ],
+    },
+    coverage: {
+      eyebrow:"Coverage",
+      h2_a:"Your language.", h2_em:"Your hours.",
+      nativeLabel:"Languages we work in",
+      hoursLabel:"Working hours · CET",
+      langs: [
+        { code:"EN", name:"English", country:"UK · IE · global", level:"C1 · fluent",       flag:"UK" },
+        { code:"DE", name:"German",  country:"DE · AT · CH",     level:"C1 · fluent",       flag:"DE" },
+        { code:"FR", name:"French",  country:"FR · BE · LU",     level:"C1 · fluent",       flag:"FR" },
+        { code:"DA", name:"Danish",  country:"DK",               level:"B2 · professional", flag:"DK" },
+        { code:"NL", name:"Dutch",   country:"NL · BE",          level:"B2 · professional", flag:"NL" },
+      ],
+      stat1Lbl:"Standard · CET",
+      stat2Lbl:"Chișinău ↔ EU",
+      stat3:"24 / 7",
+      stat3Lbl:"On request",
+    },
+    desk: {
+      eyebrow:"Results, measured",
+      h2_a:"Proof,", h2_em:"not a PowerPoint.",
+      items: [
+        { lbl:"Median first response", p:"Across live tickets during CET core hours, rolling 30 days." },
+        { lbl:"First-contact resolution", p:"Closed without handoff, because the engineer already knows your stack." },
+        { lbl:"Rolling CSAT", p:"One-click rating after every resolved ticket. You see the stream, we see it too." },
+        { lbl:"Total cost of IT ops", p:"Benchmarked against in-house or local-MSP equivalents across our client book." },
+      ],
+      quote: "The M365 migration was done over two weekends. No drama, no calls at 2 a.m. We kept the pod afterwards for day-2 ops — cheaper than hiring one in-house sysadmin in Amsterdam.",
+      quoteName:"Joost V.",
+      quoteRole:"Founder · Logistics · Rotterdam",
+    },
+    pricing: {
+      eyebrow:"Pricing",
+      h2_a:"Priced per specialist,", h2_em:"not per ticket.",
+      from:"from €", per:"/ mo · per specialist", mostChosen:"Most chosen",
+      plans: [
+        { name:"Junior Helpdesk",
+          desc:"The cheapest way to add hands to your support queue. Full-time L1, rotated across a small bench.",
+          amt:"1,290",
+          features:["Full-time · 160h/month","Helpdesk L1","EN / FR at B2","8×5 CET","Rotated across the bench"],
+          cta:"Add a junior" },
+        { name:"Helpdesk Guru",
+          desc:"A dedicated mid-level engineer who owns your queue end-to-end — the same person every morning.",
+          amt:"2,190",
+          features:["Full-time · 160h/month","Helpdesk L1 / L2","EN / FR / DE at C1","8×5 CET","Dedicated · no rotation"],
+          cta:"Add a specialist" },
+        { name:"IT Wizzard",
+          desc:"A dedicated senior for M365 tenant work, cloud, ERP and security — the specialist you'd struggle to hire locally.",
+          amt:"3,290",
+          features:["Full-time · 160h/month","M365 / Azure / AWS · ERP · security · L3","EN / DE / FR / DA / NL at C1","12×5 CET","Dedicated · no rotation"],
+          cta:"Book a discovery call" },
+      ],
+      footLine:"All rates are per specialist, full-time. Part-time slices (20h / 40h / 80h per month) available pro-rata. Typical total savings vs. local EU hire: 40–60%. Contracts include a 3–6% annual price-review clause.",
+      footLink:"Get a precise quote",
+    },
+    testim: {
+      eyebrow:"What clients say",
+      h2_a:"Quiet competence.", h2_em:"Loud savings.",
+      items: [
+        { body:"We replaced a local MSP that billed per ticket. Veritas sent us a team of four who learned our stack in a fortnight. Tickets dropped 40% because the same people close them every morning.",
+          name:"Henrik Ø.", role:"CEO · B2B SaaS · Copenhagen" },
+        { body:"Proper German, proper CET hours, proper invoices. My staff forgot they weren't in the next office. That's the whole pitch.",
+          name:"Dr. Annika R.", role:"COO · Mittelstand manufacturer · Munich" },
+      ],
+    },
+    faq: {
+      eyebrow:"FAQ",
+      h3_a:"Honest answers.", h3_b:"No sales theatre.",
+      p:"If something's missing here, call us or drop a line — we answer in the same tone we use with clients.",
+      lblUK:"London · United Kingdom", lblMD:"Chișinău · Moldova", lblRO:"Brașov · Romania",
+      items: [
+        { q:"Is this outsourcing?",
+          a:"Technically yes, practically no. You get a named pod that works only for you — not a shared queue. They show up in your Slack, join your standups, learn your quirks." },
+        { q:"How is it cheaper than a local MSP?",
+          a:"We're resident in the Moldova Innovation Technology Park — a 7% unified-tax regime legally guaranteed through 2035. Combined with local salaries and lean overheads, that's the arithmetic. We don't cut corners on who we hire." },
+        { q:"GDPR and data residency?",
+          a:"Moldova has an EU adequacy decision in progress and we operate under EU-aligned DPAs with SCCs in place today. Data can stay on EU infrastructure of your choice — we manage it, we don't store it." },
+        { q:"What languages, at what level — and how is that verified?",
+          a:"English, German and French at C1 (fluent); Danish and Dutch at B2 (professional working proficiency). Every engineer sits a Cambridge Linguaskill or EF SET test before hire — we won't put anyone below B2 in front of your users, and scores go in your pod file. Romanian and Russian available as needed." },
+        { q:"How do you keep the same engineers on our account?",
+          a:"Published five-level career ladder, tenure bonuses at 12/24/36 months, private health insurance, a dedicated training budget (AWS/Azure certs, English classes) and hybrid work. Attrition stays in the low teens — the engineer you onboard next quarter is still on your account next year." },
+        { q:"Business continuity — what if something happens in Moldova?",
+          a:"We operate from Chișinău but maintain a documented failover to our Brașov office in Romania (EU). BCP is written into every SoW — if the primary site is disrupted, your pod keeps running on the same SLA from the secondary location." },
+        { q:"How fast can we start?",
+          a:"Two weeks from signed SoW for a 3-person pod. Four weeks for anything involving M365 or ERP tenant access. Runbooks are delivered in week 3." },
+        { q:"What if it doesn't work out?",
+          a:"30-day notice, no exit fees, full handover of tickets, credentials and runbooks. We'd rather lose a client politely than keep one grumpily." },
+      ],
+    },
+    onb: {
+      eyebrow:"Get started",
+      h2_a:"Three weeks to a team", h2_em:"that feels like yours.",
+      stepLbl:"STEP",
+      steps: [
+        { t:"Discovery", d:"A 45-minute call on your stack and your pain points. No deck." },
+        { t:"Proposal",  d:"Pod shape, engineer profiles, SoW and SLAs — within 3 business days." },
+        { t:"Go-live",   d:"Two weeks of shadowing, a written runbook, then your pod takes ownership." },
+      ],
+      formH:"Tell us about your IT day.",
+      formP:"Real reply within one business day, from a person at one of our three offices.",
+      lblName:"Your name", phName:"Maria Schmidt",
+      lblEmail:"Work email", phEmail:"maria@company.com",
+      lblCompany:"Company", phCompany:"Acme GmbH",
+      lblSize:"Company size",
+      lblDelegate:"What would you delegate first?",
+      phDelegate:"A sentence about your current setup, if you'd like.",
+      note:"No auto-responder. Human reply within one business day.",
+      send:"Send it over",
+      thanks:"Tak. Danke. Thanks.",
+      thanksP:"We'll reply within one business day from a named engineer — not a generic sales inbox.",
+    },
+    foot: {
+      tag:"Near-shore IT support for European SMBs. Moldova Innovation Technology Park resident.",
+      hServices:"Services", hCompany:"Company", hCall:"Call us",
+      svcItems:[
+        {l:"Helpdesk",            h:"#services"},
+        {l:"M365 & Workspace",    h:"#services"},
+        {l:"Network & cloud",     h:"#services"},
+        {l:"ERP & in-house apps", h:"#services"},
+      ],
+      coItems:[
+        {l:"Approach",        h:"#approach"},
+        {l:"Results",         h:"#proof"},
+        {l:"Pricing",         h:"#pricing"},
+        {l:"What clients say", h:"#proof-quotes"},
+        {l:"FAQ",             h:"#faq"},
+        {l:"Contact",         h:"#contact"},
+      ],
+      legal:"GDPR · DPA · SCCs · ISO 27001 (in progress)",
+    },
+  },
+
+  DE: {
+    htmlLang: "de",
+    nav: { services:"Leistungen", approach:"Ansatz", results:"Ergebnisse", pricing:"Preise", faq:"FAQ", cta:"Gespräch buchen" },
+    hero: {
+      eyebrow: "Nearshore IT-Teams · EU-Zeitzonen",
+      h1_a: "Ihr IT-Team,", h1_em: "gleich jenseits", h1_b: "der Grenze.",
+      sub: "Dedizierte Helpdesk- und IT-Operations-Teams für europäische KMUs. Fließend in Englisch, Deutsch, Französisch und Dänisch — in Ihrer Zeitzone, zu moldauischen Preisen.",
+      ctaPrimary: "Erstgespräch buchen",
+      kpi: [
+        { lbl:"ggü. lokalen EU-MSPs" },
+        { lbl:"Mediane Erstantwort" },
+        { lbl:"Sprachniveau" },
+        { lbl:"Gleiche Zeiten" },
+      ],
+    },
+    ticker: [
+      "Berlin · Ticket #4821 gelöst · 2m 14s",
+      "Kopenhagen · M365-Tenant gepatcht",
+      "Rotterdam · Firewall-Regeln ausgerollt",
+      "Wien · CSAT 5 / 5",
+      "München · Business-Central-Sync grün",
+      "Dublin · Bereitschaftsteam · alles klar",
+    ],
+    heroChips: [
+      {city:"Berlin", text:"Ticket gelöst · 2m"},
+      {city:"Kopenhagen", text:"M365-Sync"},
+      {city:"Amsterdam", text:"alles klar"},
+    ],
+    services: {
+      eyebrow:"Leistungen",
+      h2_a:"Vier Dinge, die wir jeden Tag", h2_em:"geräuschlos", h2_b:"am Laufen halten.",
+      bespokeLabel:"Brauchen Sie etwas Maßgeschneidertes?",
+      bespokeLink:"Erzählen Sie uns davon",
+      items: [
+        { title:"Helpdesk mit Namen",
+          desc:"L1- und L2-Support von einem kleinen, namentlichen Team, das Ihre Leute und Ihren Stack kennenlernt. Chat, E-Mail, Telefon. Eskalationen mit vollem Kontext — kein Ticket-Hin-und-Her.",
+          tags:["Chat","E-Mail","Telefon","Slack / Teams"] },
+        { title:"M365 & Workspace",
+          desc:"Tenant-Administration, Identität, Geräte-Status, Postfach-Hygiene und Lizenz-Abgleich. Governance ohne Jargon, Reviews ohne Präsentation.",
+          tags:["Entra ID","Intune","Exchange","Workspace"] },
+        { title:"Netzwerk, Endpoint, Cloud",
+          desc:"Firewalls, WLAN, MDM, Patching. AWS, Azure oder GCP Day-2-Ops. Stille Infrastruktur, die vor der Verlängerungssaison richtig dimensioniert wird, nicht danach.",
+          tags:["Fortinet","Meraki","AWS","Azure"] },
+        { title:"ERP, CRM & Eigenentwicklungen",
+          desc:"Second-Line-Support für Business Central, NetSuite, HubSpot, Salesforce und die App, die drei Gründer-Generationen zuvor gebaut wurde. Wir lesen Code, schreiben Runbooks, bleiben dran.",
+          tags:["BC / NAV","NetSuite","HubSpot","Legacy"] },
+      ],
+    },
+    coverage: {
+      eyebrow:"Abdeckung",
+      h2_a:"Ihre Sprache.", h2_em:"Ihre Zeiten.",
+      nativeLabel:"Sprachen, in denen wir arbeiten",
+      hoursLabel:"Arbeitszeiten · MEZ",
+      langs: [
+        { code:"EN", name:"Englisch",       country:"UK · IE · global", level:"C1 · fließend",           flag:"UK" },
+        { code:"DE", name:"Deutsch",        country:"DE · AT · CH",     level:"C1 · fließend",           flag:"DE" },
+        { code:"FR", name:"Französisch",    country:"FR · BE · LU",     level:"C1 · fließend",           flag:"FR" },
+        { code:"DA", name:"Dänisch",        country:"DK",               level:"B2 · verhandlungssicher", flag:"DK" },
+        { code:"NL", name:"Niederländisch", country:"NL · BE",          level:"B2 · verhandlungssicher", flag:"NL" },
+      ],
+      stat1Lbl:"Standard · MEZ",
+      stat2Lbl:"Chișinău ↔ EU",
+      stat3:"24 / 7",
+      stat3Lbl:"Auf Anfrage",
+    },
+    desk: {
+      eyebrow:"Messbare Ergebnisse",
+      h2_a:"Beweise,", h2_em:"keine PowerPoint.",
+      items: [
+        { lbl:"Mediane Erstreaktion", p:"Über Live-Tickets während der MEZ-Kernzeit, rollierende 30 Tage." },
+        { lbl:"Erstlösungsquote", p:"Ohne Weitergabe geschlossen, weil der Engineer Ihren Stack bereits kennt." },
+        { lbl:"Rollierender CSAT", p:"Bewertung mit einem Klick nach jedem gelösten Ticket. Sie sehen den Stream, wir auch." },
+        { lbl:"Gesamtkosten IT-Betrieb", p:"Verglichen mit internen oder lokalen-MSP-Entsprechungen über unseren Kundenstamm hinweg." },
+      ],
+      quote: "Die M365-Migration war an zwei Wochenenden erledigt. Kein Drama, keine Anrufe um 2 Uhr morgens. Wir haben das Team anschließend für den Day-2-Betrieb behalten — günstiger als einen internen Sysadmin in Amsterdam einzustellen.",
+      quoteName:"Joost V.",
+      quoteRole:"Gründer · Logistik · Rotterdam",
+    },
+    pricing: {
+      eyebrow:"Preise",
+      h2_a:"Preis pro Spezialist,", h2_em:"nicht pro Ticket.",
+      from:"ab €", per:"/ Mon · pro Spezialist", mostChosen:"Am meisten gewählt",
+      plans: [
+        { name:"Junior Helpdesk",
+          desc:"Die günstigste Art, Ihre Support-Queue personell zu verstärken. Vollzeit L1, rotiert im Team.",
+          amt:"1.290",
+          features:["Vollzeit · 160 Std./Monat","Helpdesk L1","EN / FR auf B2","8×5 MEZ","Rotiert im Team"],
+          cta:"Junior hinzufügen" },
+        { name:"Helpdesk Guru",
+          desc:"Ein dediziertes Mid-Level-Profil, das Ihre Queue durchgängig verantwortet — jeden Morgen dieselbe Person.",
+          amt:"2.190",
+          features:["Vollzeit · 160 Std./Monat","Helpdesk L1 / L2","EN / FR / DE auf C1","8×5 MEZ","Dediziert · keine Rotation"],
+          cta:"Spezialist hinzufügen" },
+        { name:"IT Wizzard",
+          desc:"Ein dedizierter Senior für M365-Tenant-Arbeit, Cloud, ERP und Sicherheit — das Profil, das Sie lokal kaum finden.",
+          amt:"3.290",
+          features:["Vollzeit · 160 Std./Monat","M365 / Azure / AWS · ERP · Sicherheit · L3","EN / DE / FR / DA / NL auf C1","12×5 MEZ","Dediziert · keine Rotation"],
+          cta:"Erstgespräch buchen" },
+      ],
+      footLine:"Alle Preise verstehen sich pro Spezialist in Vollzeit. Teilzeit-Kontingente (20h / 40h / 80h pro Monat) anteilig verfügbar. Typische Gesamteinsparungen ggü. lokaler EU-Einstellung: 40–60 %. Verträge enthalten eine jährliche Preisanpassungsklausel von 3–6 %.",
+      footLink:"Genaues Angebot erhalten",
+    },
+    testim: {
+      eyebrow:"Was Kunden sagen",
+      h2_a:"Stille Kompetenz.", h2_em:"Laute Einsparungen.",
+      items: [
+        { body:"Wir haben einen lokalen MSP ersetzt, der pro Ticket abrechnete. Veritas schickte uns ein Team von vier Leuten, das unseren Stack in zwei Wochen beherrschte. Die Tickets gingen um 40 % zurück, weil die gleichen Leute sie jeden Morgen schließen.",
+          name:"Henrik Ø.", role:"Geschäftsführer · B2B SaaS · Kopenhagen" },
+        { body:"Richtiges Deutsch, richtige MEZ-Zeiten, richtige Rechnungen. Meine Mitarbeiter vergaßen, dass sie nicht im Büro nebenan sind. Das ist der ganze Pitch.",
+          name:"Dr. Annika R.", role:"COO · Mittelständischer Hersteller · München" },
+      ],
+    },
+    faq: {
+      eyebrow:"FAQ",
+      h3_a:"Ehrliche Antworten.", h3_b:"Kein Verkaufstheater.",
+      p:"Wenn hier etwas fehlt, rufen Sie uns an oder schreiben Sie kurz — wir antworten im gleichen Ton, den wir mit Kunden pflegen.",
+      lblUK:"London · Vereinigtes Königreich", lblMD:"Chișinău · Moldau", lblRO:"Brașov · Rumänien",
+      items: [
+        { q:"Ist das Outsourcing?",
+          a:"Technisch ja, praktisch nein. Sie bekommen ein namentliches Team, das nur für Sie arbeitet — keine geteilte Warteschlange. Sie tauchen in Ihrem Slack auf, nehmen an Ihren Standups teil, lernen Ihre Eigenheiten." },
+        { q:"Wieso ist das günstiger als ein lokaler MSP?",
+          a:"Wir sind im Moldova Innovation Technology Park ansässig — ein 7 %-Pauschalsteuer-Regime, gesetzlich garantiert bis 2035. Zusammen mit lokalen Gehältern und schlankem Overhead ist das die Rechnung. Bei der Einstellung machen wir keine Abstriche." },
+        { q:"DSGVO und Datenresidenz?",
+          a:"Für die Republik Moldau ist ein EU-Angemessenheitsbeschluss in Vorbereitung, und wir arbeiten heute schon unter EU-konformen DPAs mit SCCs. Daten können auf EU-Infrastruktur Ihrer Wahl bleiben — wir verwalten sie, speichern sie nicht." },
+        { q:"Welche Sprachen, auf welchem Niveau — und wie wird das nachgewiesen?",
+          a:"Englisch, Deutsch und Französisch auf C1 (fließend); Dänisch und Niederländisch auf B2 (verhandlungssicher). Jeder Engineer absolviert vor der Einstellung einen Cambridge-Linguaskill- oder EF-SET-Test — unter B2 kommt niemand vor Ihre Nutzer, und die Ergebnisse liegen in der Team-Akte. Rumänisch und Russisch nach Bedarf." },
+        { q:"Wie behalten Sie dieselben Engineers auf unserem Account?",
+          a:"Veröffentlichte fünfstufige Karriereleiter, Treueboni nach 12/24/36 Monaten, private Krankenversicherung, ein festes Weiterbildungsbudget (AWS-/Azure-Zertifikate, Englisch-Kurse) und Hybrid-Arbeit. Fluktuation bleibt im niedrigen zweistelligen Bereich — der Engineer, den Sie nächstes Quartal onboarden, ist nächstes Jahr noch auf Ihrem Account." },
+        { q:"Business Continuity — was, wenn in Moldau etwas passiert?",
+          a:"Wir arbeiten aus Chișinău, halten aber einen dokumentierten Failover auf unser Brașov-Büro in Rumänien (EU) vor. BCP steht in jedem SoW — fällt der Primärstandort aus, läuft Ihr Team zum gleichen SLA am Sekundärstandort weiter." },
+        { q:"Wie schnell können wir starten?",
+          a:"Zwei Wochen nach unterzeichnetem SoW für ein 3-Personen-Team. Vier Wochen bei M365- oder ERP-Tenant-Zugriff. Runbooks werden in Woche 3 geliefert." },
+        { q:"Was, wenn es nicht klappt?",
+          a:"30 Tage Kündigungsfrist, keine Austrittsgebühren, vollständige Übergabe von Tickets, Zugangsdaten und Runbooks. Wir verlieren einen Kunden lieber höflich, als einen verärgert zu behalten." },
+      ],
+    },
+    onb: {
+      eyebrow:"Loslegen",
+      h2_a:"Drei Wochen bis zu einem Team,", h2_em:"das sich wie Ihr eigenes anfühlt.",
+      stepLbl:"SCHRITT",
+      steps: [
+        { t:"Discovery", d:"Ein 45-minütiges Gespräch über Ihren Stack und Ihre Schmerzpunkte. Ohne Präsentation." },
+        { t:"Angebot",   d:"Team-Zuschnitt, Engineer-Profile, SoW und SLAs — innerhalb von 3 Werktagen." },
+        { t:"Go-live",   d:"Zwei Wochen Shadowing, ein schriftliches Runbook, dann übernimmt Ihr Team die Verantwortung." },
+      ],
+      formH:"Erzählen Sie uns von Ihrem IT-Alltag.",
+      formP:"Echte Antwort innerhalb eines Werktages, von einer Person aus einem unserer drei Büros.",
+      lblName:"Ihr Name", phName:"Maria Schmidt",
+      lblEmail:"Geschäftliche E-Mail", phEmail:"maria@unternehmen.com",
+      lblCompany:"Unternehmen", phCompany:"Acme GmbH",
+      lblSize:"Unternehmensgröße",
+      lblDelegate:"Was würden Sie zuerst delegieren?",
+      phDelegate:"Ein Satz zu Ihrem aktuellen Setup, wenn Sie mögen.",
+      note:"Keine Autoresponder. Antwort von einem Menschen innerhalb eines Werktages.",
+      send:"Abschicken",
+      thanks:"Tak. Danke. Thanks.",
+      thanksP:"Wir melden uns innerhalb eines Werktages — von einem namentlichen Engineer, nicht einer generischen Sales-Adresse.",
+    },
+    foot: {
+      tag:"Nearshore IT-Support für europäische KMUs. Ansässig im Moldova Innovation Technology Park.",
+      hServices:"Leistungen", hCompany:"Unternehmen", hCall:"Rufen Sie uns an",
+      svcItems:[
+        {l:"Helpdesk",                  h:"#services"},
+        {l:"M365 & Workspace",          h:"#services"},
+        {l:"Netzwerk & Cloud",          h:"#services"},
+        {l:"ERP & Eigenentwicklungen",  h:"#services"},
+      ],
+      coItems:[
+        {l:"Ansatz",         h:"#approach"},
+        {l:"Ergebnisse",     h:"#proof"},
+        {l:"Preise",         h:"#pricing"},
+        {l:"Kundenstimmen",  h:"#proof-quotes"},
+        {l:"FAQ",            h:"#faq"},
+        {l:"Kontakt",        h:"#contact"},
+      ],
+      legal:"DSGVO · DPA · SCCs · ISO 27001 (in Arbeit)",
+    },
+  },
+
+  DA: {
+    htmlLang: "da",
+    nav: { services:"Ydelser", approach:"Tilgang", results:"Resultater", pricing:"Priser", faq:"FAQ", cta:"Book samtale" },
+    hero: {
+      eyebrow: "Nearshore IT-teams · EU-tidszoner",
+      h1_a: "Dit IT-team,", h1_em: "lige på den anden", h1_b: "side af grænsen.",
+      sub: "Dedikerede helpdesk- og IT-driftsteams til europæiske SMV'er. Flydende engelsk, tysk, fransk og dansk — i din tidszone, til moldoviske priser.",
+      ctaPrimary: "Book et introduktionsmøde",
+      kpi: [
+        { lbl:"vs. lokale EU-MSP'er" },
+        { lbl:"Median første svar" },
+        { lbl:"Sprogniveau" },
+        { lbl:"Samme tider" },
+      ],
+    },
+    ticker: [
+      "Berlin · ticket #4821 løst · 2m 14s",
+      "København · M365-tenant patched",
+      "Rotterdam · firewall-regler pushed",
+      "Wien · CSAT 5 / 5",
+      "München · Business Central sync grøn",
+      "Dublin · vagt-team · alt klar",
+    ],
+    heroChips: [
+      {city:"Berlin", text:"ticket løst · 2m"},
+      {city:"København", text:"M365-sync"},
+      {city:"Amsterdam", text:"alt klar"},
+    ],
+    services: {
+      eyebrow:"Ydelser",
+      h2_a:"Fire ting, vi driver", h2_em:"stille og roligt,", h2_b:"hver dag.",
+      bespokeLabel:"Har du brug for noget skræddersyet?",
+      bespokeLink:"Fortæl os om det",
+      items: [
+        { title:"Helpdesk med navn",
+          desc:"L1- og L2-support leveret af et lille, navngivet team, der lærer jeres folk og jeres stack at kende. Chat, e-mail, telefon. Eskaleringer med fuld kontekst — ikke ticket-kast.",
+          tags:["Chat","E-mail","Telefon","Slack / Teams"] },
+        { title:"M365 & Workspace",
+          desc:"Tenant-administration, identitet, device-posture, mailbox-hygiejne og licens-afstemning. Governance uden jargon, reviews uden PowerPoint.",
+          tags:["Entra ID","Intune","Exchange","Workspace"] },
+        { title:"Netværk, endpoint, cloud",
+          desc:"Firewalls, Wi-Fi, MDM, patching. AWS, Azure eller GCP day-2 drift. Stille infrastruktur, der bliver rigtigt dimensioneret før fornyelsessæsonen, ikke efter.",
+          tags:["Fortinet","Meraki","AWS","Azure"] },
+        { title:"ERP, CRM & interne apps",
+          desc:"Second-line support til Business Central, NetSuite, HubSpot, Salesforce og appen, som tre stiftere før byggede. Vi læser kode, skriver runbooks, bliver hængende.",
+          tags:["BC / NAV","NetSuite","HubSpot","Legacy"] },
+      ],
+    },
+    coverage: {
+      eyebrow:"Dækning",
+      h2_a:"Dit sprog.", h2_em:"Dine tider.",
+      nativeLabel:"Sprog vi arbejder på",
+      hoursLabel:"Arbejdstider · CET",
+      langs: [
+        { code:"EN", name:"Engelsk",    country:"UK · IE · global", level:"C1 · flydende",     flag:"UK" },
+        { code:"DE", name:"Tysk",       country:"DE · AT · CH",     level:"C1 · flydende",     flag:"DE" },
+        { code:"FR", name:"Fransk",     country:"FR · BE · LU",     level:"C1 · flydende",     flag:"FR" },
+        { code:"DA", name:"Dansk",      country:"DK",               level:"B2 · forhandlingssikker", flag:"DK" },
+        { code:"NL", name:"Hollandsk",  country:"NL · BE",          level:"B2 · forhandlingssikker", flag:"NL" },
+      ],
+      stat1Lbl:"Standard · CET",
+      stat2Lbl:"Chișinău ↔ EU",
+      stat3:"24 / 7",
+      stat3Lbl:"På forespørgsel",
+    },
+    desk: {
+      eyebrow:"Resultater, målt",
+      h2_a:"Bevis,", h2_em:"ikke en PowerPoint.",
+      items: [
+        { lbl:"Median første respons", p:"På tværs af live-tickets i CET-kernetid, rullende 30 dage." },
+        { lbl:"Løsning ved første kontakt", p:"Lukket uden overdragelse, fordi ingeniøren allerede kender jeres stack." },
+        { lbl:"Rullende CSAT", p:"Ét-klik-vurdering efter hver løst ticket. I ser strømmen, vi gør også." },
+        { lbl:"Totale omkostninger ved IT-drift", p:"Benchmarket mod interne eller lokale-MSP-ækvivalenter på tværs af vores kundebog." },
+      ],
+      quote: "M365-migrationen blev gennemført på to weekender. Intet drama, ingen opkald klokken 2 om natten. Vi beholdt teamet bagefter til day-2 drift — billigere end at ansætte én intern sysadmin i Amsterdam.",
+      quoteName:"Joost V.",
+      quoteRole:"Stifter · Logistik · Rotterdam",
+    },
+    pricing: {
+      eyebrow:"Priser",
+      h2_a:"Pris pr. specialist,", h2_em:"ikke pr. ticket.",
+      from:"fra €", per:"/ md · pr. specialist", mostChosen:"Mest valgte",
+      plans: [
+        { name:"Junior Helpdesk",
+          desc:"Den billigste måde at tilføje hænder til jeres supportkø. Fuldtid L1, roteret på tværs af et lille team.",
+          amt:"1.290",
+          features:["Fuldtid · 160t/måned","Helpdesk L1","EN / FR på B2","8×5 CET","Roteret på tværs af teamet"],
+          cta:"Tilføj en junior" },
+        { name:"Helpdesk Guru",
+          desc:"En dedikeret mid-level ingeniør, der ejer jeres kø hele vejen — samme person hver morgen.",
+          amt:"2.190",
+          features:["Fuldtid · 160t/måned","Helpdesk L1 / L2","EN / FR / DE på C1","8×5 CET","Dedikeret · ingen rotation"],
+          cta:"Tilføj en specialist" },
+        { name:"IT Wizzard",
+          desc:"En dedikeret senior til M365-tenant-arbejde, cloud, ERP og sikkerhed — profilen, I sjældent finder lokalt.",
+          amt:"3.290",
+          features:["Fuldtid · 160t/måned","M365 / Azure / AWS · ERP · sikkerhed · L3","EN / DE / FR / DA / NL på C1","12×5 CET","Dedikeret · ingen rotation"],
+          cta:"Book et introduktionsmøde" },
+      ],
+      footLine:"Alle priser er pr. specialist på fuldtid. Deltids-andele (20t / 40t / 80t pr. måned) tilgængelige pro rata. Typiske samlede besparelser ift. lokal EU-ansættelse: 40–60 %. Kontrakter inkluderer en årlig prisregulerings-klausul på 3–6 %.",
+      footLink:"Få et præcist tilbud",
+    },
+    testim: {
+      eyebrow:"Hvad kunder siger",
+      h2_a:"Stille kompetence.", h2_em:"Høje besparelser.",
+      items: [
+        { body:"Vi udskiftede en lokal MSP, der fakturerede pr. ticket. Veritas sendte os et team på fire, der lærte vores stack på to uger. Tickets faldt 40 %, fordi de samme folk lukker dem hver morgen.",
+          name:"Henrik Ø.", role:"CEO · B2B SaaS · København" },
+        { body:"Ordentligt tysk, ordentlige CET-tider, ordentlige fakturaer. Mine medarbejdere glemte, at de ikke var i nabokontoret. Det er hele pitchet.",
+          name:"Dr. Annika R.", role:"COO · Mittelstand-producent · München" },
+      ],
+    },
+    faq: {
+      eyebrow:"FAQ",
+      h3_a:"Ærlige svar.", h3_b:"Intet sælger-teater.",
+      p:"Hvis noget mangler her, så ring eller skriv — vi svarer i den samme tone, som vi bruger med kunder.",
+      lblUK:"London · Storbritannien", lblMD:"Chișinău · Moldova", lblRO:"Brașov · Rumænien",
+      items: [
+        { q:"Er det outsourcing?",
+          a:"Teknisk ja, praktisk nej. I får et navngivet team, der kun arbejder for jer — ikke en delt kø. De dukker op på jeres Slack, er med til jeres standups, lærer jeres særheder." },
+        { q:"Hvordan er det billigere end en lokal MSP?",
+          a:"Vi er hjemmehørende i Moldova Innovation Technology Park — et 7 %-samlet-skat-regime, lovgivningsmæssigt garanteret frem til 2035. Kombineret med lokale lønninger og lave faste omkostninger er det regnestykket. Vi går ikke på kompromis med, hvem vi ansætter." },
+        { q:"GDPR og data-residens?",
+          a:"Moldova har en EU-tilstrækkelighedsafgørelse under udarbejdelse, og vi opererer allerede i dag under EU-afstemte DPA'er med SCC'er. Data kan blive på EU-infrastruktur efter jeres valg — vi administrerer dem, vi opbevarer dem ikke." },
+        { q:"Hvilke sprog, på hvilket niveau — og hvordan er det verificeret?",
+          a:"Engelsk, tysk og fransk på C1 (flydende); dansk og hollandsk på B2 (forhandlingssikker). Hver ingeniør aflægger en Cambridge Linguaskill- eller EF SET-test før ansættelse — ingen under B2 kommer i kontakt med jeres brugere, og scoren ligger i team-filen. Rumænsk og russisk efter behov." },
+        { q:"Hvordan holder I de samme ingeniører på vores account?",
+          a:"Offentliggjort femtrins karrierestige, anciennitets-bonusser ved 12/24/36 måneder, privat sundhedsforsikring, et dedikeret uddannelsesbudget (AWS-/Azure-certifikater, engelsk-klasser) og hybridarbejde. Frafald holdes i de lave teenagere — ingeniøren, I onboarder næste kvartal, er stadig på jeres account næste år." },
+        { q:"Business continuity — hvad hvis der sker noget i Moldova?",
+          a:"Vi arbejder fra Chișinău men har en dokumenteret failover til vores Brașov-kontor i Rumænien (EU). BCP er skrevet ind i hvert SoW — bliver den primære lokation forstyrret, kører jeres team videre på samme SLA fra den sekundære." },
+        { q:"Hvor hurtigt kan vi starte?",
+          a:"To uger fra underskrevet SoW til et 3-personers team. Fire uger for noget, der involverer M365- eller ERP-tenant-adgang. Runbooks leveres i uge 3." },
+        { q:"Hvad hvis det ikke fungerer?",
+          a:"30 dages opsigelse, ingen exit-gebyrer, fuld overdragelse af tickets, adgangsoplysninger og runbooks. Vi mister hellere en kunde høfligt end beholder én modvilligt." },
+      ],
+    },
+    onb: {
+      eyebrow:"Kom i gang",
+      h2_a:"Tre uger til et team,", h2_em:"der føles som jeres eget.",
+      stepLbl:"TRIN",
+      steps: [
+        { t:"Afklaring", d:"En 45-minutters samtale om jeres stack og jeres smertepunkter. Ingen præsentation." },
+        { t:"Forslag",   d:"Team-sammensætning, ingeniørprofiler, SoW og SLA'er — inden for 3 arbejdsdage." },
+        { t:"Go-live",   d:"To ugers shadowing, et skriftligt runbook, så overtager jeres team ansvaret." },
+      ],
+      formH:"Fortæl os om din IT-hverdag.",
+      formP:"Ægte svar inden for én arbejdsdag, fra en person fra ét af vores tre kontorer.",
+      lblName:"Dit navn", phName:"Maria Schmidt",
+      lblEmail:"Arbejds-e-mail", phEmail:"maria@virksomhed.com",
+      lblCompany:"Virksomhed", phCompany:"Acme ApS",
+      lblSize:"Virksomhedsstørrelse",
+      lblDelegate:"Hvad ville du uddelegere først?",
+      phDelegate:"En sætning om jeres nuværende setup, hvis du vil.",
+      note:"Ingen autosvar. Menneskeligt svar inden for én arbejdsdag.",
+      send:"Send afsted",
+      thanks:"Tak. Danke. Thanks.",
+      thanksP:"Vi svarer inden for én arbejdsdag fra en navngivet ingeniør — ikke en generisk salgs-inbox.",
+    },
+    foot: {
+      tag:"Nearshore IT-support til europæiske SMV'er. Hjemmehørende i Moldova Innovation Technology Park.",
+      hServices:"Ydelser", hCompany:"Virksomhed", hCall:"Ring til os",
+      svcItems:[
+        {l:"Helpdesk",           h:"#services"},
+        {l:"M365 & Workspace",   h:"#services"},
+        {l:"Netværk & cloud",    h:"#services"},
+        {l:"ERP & interne apps", h:"#services"},
+      ],
+      coItems:[
+        {l:"Tilgang",        h:"#approach"},
+        {l:"Resultater",     h:"#proof"},
+        {l:"Priser",         h:"#pricing"},
+        {l:"Kundeudtalelser", h:"#proof-quotes"},
+        {l:"FAQ",            h:"#faq"},
+        {l:"Kontakt",        h:"#contact"},
+      ],
+      legal:"GDPR · DPA · SCCs · ISO 27001 (i gang)",
+    },
+  },
+};
+
+const LangContext = React.createContext({ lang:"EN", setLang:()=>{}, t:LOCALES.EN });
+
+const LangProvider = ({children}) => {
+  const [lang, setLangRaw] = React.useState(() => {
+    try { return localStorage.getItem("veritasLang") || "EN"; } catch(_) { return "EN"; }
+  });
+  const setLang = (l) => {
+    setLangRaw(l);
+    try { localStorage.setItem("veritasLang", l); } catch(_) {}
+  };
+  const t = LOCALES[lang] || LOCALES.EN;
+  React.useEffect(() => {
+    document.documentElement.lang = t.htmlLang;
+  }, [lang]);
+  return (
+    <LangContext.Provider value={{ lang, setLang, t }}>
+      {children}
+    </LangContext.Provider>
+  );
+};
+
+const useLang = () => React.useContext(LangContext);
+
+Object.assign(window, { LOCALES, LangContext, LangProvider, useLang });
+
+
+// ===== src/parts.jsx =====
+// Small shared parts — icons, flags, motion helpers
+
+const Arrow = ({size=14}) => (
+  <svg className="arrow" width={size} height={size} viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <path d="M2 7h10M8 3l4 4-4 4"/>
+  </svg>
+);
+const Phone = ({size=13}) => (
+  <svg width={size} height={size} viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12.5 10v1.5a1 1 0 0 1-1 1A9 9 0 0 1 2 3.5a1 1 0 0 1 1-1h1.5a1 1 0 0 1 1 .75l.5 2a1 1 0 0 1-.25 1l-1 1a8 8 0 0 0 3 3l1-1a1 1 0 0 1 1-.25l2 .5a1 1 0 0 1 .75 1z"/>
+  </svg>
+);
+const ChevLeft = () => (<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M10 3L5 8l5 5"/></svg>);
+const ChevRight = () => (<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 3l5 5-5 5"/></svg>);
+
+// Proper SVG flags — viewBox 60x40
+const FLAG_SVGS = {
+  UK: (
+    <svg viewBox="0 0 60 40" preserveAspectRatio="none">
+      <rect width="60" height="40" fill="#012169"/>
+      <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" strokeWidth="9"/>
+      <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" strokeWidth="3.5"/>
+      <path d="M30,0 V40 M0,20 H60" stroke="#fff" strokeWidth="11"/>
+      <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" strokeWidth="6"/>
+    </svg>
+  ),
+  DE: (
+    <svg viewBox="0 0 60 40" preserveAspectRatio="none">
+      <rect width="60" height="13.33" fill="#000"/>
+      <rect y="13.33" width="60" height="13.33" fill="#DD0000"/>
+      <rect y="26.66" width="60" height="13.34" fill="#FFCE00"/>
+    </svg>
+  ),
+  DK: (
+    <svg viewBox="0 0 60 40" preserveAspectRatio="none">
+      <rect width="60" height="40" fill="#C8102E"/>
+      <rect x="20" width="6" height="40" fill="#fff"/>
+      <rect y="17" width="60" height="6" fill="#fff"/>
+    </svg>
+  ),
+  NL: (
+    <svg viewBox="0 0 60 40" preserveAspectRatio="none">
+      <rect width="60" height="13.33" fill="#AE1C28"/>
+      <rect y="13.33" width="60" height="13.33" fill="#fff"/>
+      <rect y="26.66" width="60" height="13.34" fill="#21468B"/>
+    </svg>
+  ),
+  FR: (
+    <svg viewBox="0 0 60 40" preserveAspectRatio="none">
+      <rect width="20" height="40" fill="#002654"/>
+      <rect x="20" width="20" height="40" fill="#fff"/>
+      <rect x="40" width="20" height="40" fill="#ED2939"/>
+    </svg>
+  ),
+  BE: (
+    <svg viewBox="0 0 60 40" preserveAspectRatio="none">
+      <rect width="20" height="40" fill="#000"/>
+      <rect x="20" width="20" height="40" fill="#FAE042"/>
+      <rect x="40" width="20" height="40" fill="#ED2939"/>
+    </svg>
+  ),
+  RO: (
+    <svg viewBox="0 0 60 40" preserveAspectRatio="none">
+      <rect width="20" height="40" fill="#002B7F"/>
+      <rect x="20" width="20" height="40" fill="#FCD116"/>
+      <rect x="40" width="20" height="40" fill="#CE1126"/>
+    </svg>
+  ),
+  MD: (
+    <svg viewBox="0 0 60 40" preserveAspectRatio="none">
+      <rect width="20" height="40" fill="#0046AE"/>
+      <rect x="20" width="20" height="40" fill="#FFD200"/>
+      <rect x="40" width="20" height="40" fill="#CC092F"/>
+      <circle cx="30" cy="20" r="5" fill="none" stroke="#8b6f1a" strokeWidth="1"/>
+    </svg>
+  ),
+  IE: (
+    <svg viewBox="0 0 60 40" preserveAspectRatio="none">
+      <rect width="20" height="40" fill="#169B62"/>
+      <rect x="20" width="20" height="40" fill="#fff"/>
+      <rect x="40" width="20" height="40" fill="#FF883E"/>
+    </svg>
+  ),
+  AT: (
+    <svg viewBox="0 0 60 40" preserveAspectRatio="none">
+      <rect width="60" height="13.33" fill="#ED2939"/>
+      <rect y="13.33" width="60" height="13.33" fill="#fff"/>
+      <rect y="26.66" width="60" height="13.34" fill="#ED2939"/>
+    </svg>
+  ),
+};
+
+const Flag = ({code}) => (
+  <div className="flag">{FLAG_SVGS[code] || null}</div>
+);
+const FLAGS = FLAG_SVGS; // legacy alias
+
+// Scroll reveal hook — sets .in when element enters viewport
+const useReveal = () => {
+  const ref = React.useRef(null);
+  React.useEffect(()=>{
+    const el = ref.current; if (!el) return;
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if (e.isIntersecting){ el.classList.add("in"); io.unobserve(el); } });
+    }, {threshold:0.12});
+    io.observe(el);
+    return ()=>io.disconnect();
+  },[]);
+  return ref;
+};
+
+// Animated counter for stats like "72%" / "11min"
+const CountUp = ({value, suffix="", prefix="", duration=1400}) => {
+  const ref = React.useRef(null);
+  const [n, setN] = React.useState(0);
+  React.useEffect(()=>{
+    const el = ref.current; if (!el) return;
+    const io = new IntersectionObserver(([e])=>{
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      const start = performance.now();
+      const raf = (t)=>{
+        const k = Math.min(1, (t-start)/duration);
+        const ease = 1 - Math.pow(1-k, 3);
+        setN(value * ease);
+        if (k<1) requestAnimationFrame(raf);
+      };
+      requestAnimationFrame(raf);
+    },{threshold:0.4});
+    io.observe(el);
+    return ()=>io.disconnect();
+  },[value, duration]);
+  const display = value % 1 === 0 ? Math.round(n) : n.toFixed(1);
+  return <span ref={ref}>{prefix}{display}{suffix}</span>;
+};
+
+// Animated SVG network — for hero
+const HeroVisual = () => {
+  const ctx = (typeof useLang === "function") ? useLang() : null;
+  const chips = (ctx && ctx.t && ctx.t.heroChips) || [
+    {city:"Berlin", text:"ticket resolved · 2m"},
+    {city:"Copenhagen", text:"M365 sync"},
+    {city:"Amsterdam", text:"all clear"},
+  ];
+  return (
+  <div className="hero-visual" aria-hidden="true">
+    <svg viewBox="-20 -20 540 540" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <radialGradient id="hg1" cx="50%" cy="40%" r="60%">
+          <stop offset="0%" stopColor="var(--accent)" stopOpacity=".18"/>
+          <stop offset="100%" stopColor="var(--accent)" stopOpacity="0"/>
+        </radialGradient>
+        <linearGradient id="hg2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="var(--accent)"/>
+          <stop offset="100%" stopColor="var(--accent-ink)"/>
+        </linearGradient>
+      </defs>
+
+      {/* soft halo */}
+      <circle cx="250" cy="210" r="220" fill="url(#hg1)"/>
+
+      {/* concentric orbits */}
+      <circle cx="250" cy="250" r="90"  fill="none" stroke="var(--line)" strokeDasharray="2 4"/>
+      <circle cx="250" cy="250" r="150" fill="none" stroke="var(--line)" strokeDasharray="2 4"/>
+      <circle cx="250" cy="250" r="210" fill="none" stroke="var(--line)" strokeDasharray="2 4"/>
+
+      {/* rotating orbit groups */}
+      <g className="orbit orbit-a">
+        <circle cx="250" cy="250" r="90" fill="none" stroke="var(--accent-soft)" strokeWidth="1.2" strokeDasharray="60 400"/>
+        <circle cx="340" cy="250" r="5" fill="var(--accent)"/>
+      </g>
+      <g className="orbit orbit-b">
+        <circle cx="250" cy="250" r="150" fill="none" stroke="var(--accent-soft)" strokeWidth="1.2" strokeDasharray="80 700"/>
+        <circle cx="100" cy="250" r="4" fill="var(--accent-ink)"/>
+      </g>
+      <g className="orbit orbit-c">
+        <circle cx="250" cy="250" r="210" fill="none" stroke="var(--accent-soft)" strokeWidth="1" strokeDasharray="40 900"/>
+        <circle cx="460" cy="250" r="3.5" fill="var(--accent)"/>
+      </g>
+
+      {/* central server stack */}
+      <g className="hv-core" transform="translate(208 206)">
+        <rect width="84" height="88" rx="10" fill="#fff" stroke="var(--ink)" strokeWidth="1.2"/>
+        {[0,1,2].map(i=>(
+          <g key={i} transform={`translate(0 ${10+i*26})`}>
+            <rect x="8" y="0" width="68" height="18" rx="4" fill="var(--bg-card)" stroke="var(--line)"/>
+            <circle cx="18" cy="9" r="2" fill="var(--accent)" className={`blip blip-${i}`}/>
+            <rect x="28" y="6" width="40" height="2" fill="var(--line)"/>
+            <rect x="28" y="11" width="24" height="2" fill="var(--line)"/>
+          </g>
+        ))}
+      </g>
+
+      {/* nodes at cardinal points */}
+      {[
+        {x:250,y:60,  l:"DE"},
+        {x:430,y:230, l:"DK"},
+        {x:250,y:430, l:"UK"},
+        {x:70, y:230, l:"NL"},
+        {x:380,y:110, l:"AT"},
+        {x:130,y:360, l:"FR"},
+      ].map((n,i)=>(
+        <g key={i} className={`node node-${i}`} transform={`translate(${n.x} ${n.y})`}>
+          <circle r="18" fill="#fff" stroke="var(--line)"/>
+          <circle r="18" fill="none" stroke="var(--accent)" strokeWidth="1.5" className="ring"/>
+          <text textAnchor="middle" dy="4" fontFamily="JetBrains Mono, monospace" fontSize="10" fill="var(--ink)" fontWeight="600">{n.l}</text>
+        </g>
+      ))}
+
+      {/* data pulses along paths */}
+      <g className="pulses" stroke="var(--accent)" strokeWidth="1.2" fill="none" opacity=".35">
+        <path d="M250 80 L250 200"/>
+        <path d="M410 230 L300 240"/>
+        <path d="M250 410 L250 300"/>
+        <path d="M90 230 L200 240"/>
+      </g>
+    </svg>
+
+    <div className="hv-chip hv-chip-1">
+      <span className="hv-dot"/> <b>{chips[0].city}</b> · {chips[0].text}
+    </div>
+    <div className="hv-chip hv-chip-2">
+      <span className="hv-dot dot-amber"/> <b>{chips[1].city}</b> · {chips[1].text}
+    </div>
+    <div className="hv-chip hv-chip-3">
+      <span className="hv-dot"/> <b>{chips[2].city}</b> · {chips[2].text}
+    </div>
+  </div>
+  );
+};
+
+Object.assign(window, { Arrow, Phone, ChevLeft, ChevRight, Flag, FLAGS, useReveal, CountUp, HeroVisual });
+
+
+// ===== src/sections.jsx =====
+// Nav, Hero, Services, Testimonials, FAQ, Footer
+
+const PHONES = {
+  UK: "+44 755 149 5123",
+  MD: "+373 6938 6938",
+  RO: "+40 755 836 090",
+};
+const EMAILS = {
+  UK: "london@veritascode.net",
+  RO: "romania@veritascode.net",
+  MAIN: "info@veritascode.net",
+};
+
+const Nav = () => {
+  const {lang, setLang, t} = useLang();
+  const [open, setOpen] = React.useState(false);
+  const close = () => setOpen(false);
+  React.useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+  return (
+    <nav className={"nav" + (open ? " nav-open" : "")}>
+      <div className="nav-inner">
+        <a href="#" className="brand" onClick={close}>
+          <div className="brand-mark"/>
+          <div className="brand-name">Veritas Code</div>
+        </a>
+        <div className="nav-links">
+          <a href="#services">{t.nav.services}</a>
+          <a href="#approach">{t.nav.approach}</a>
+          <a href="#proof">{t.nav.results}</a>
+          <a href="#pricing">{t.nav.pricing}</a>
+          <a href="#faq">{t.nav.faq}</a>
+        </div>
+        <div className="nav-cta">
+          <div className="lang-switch">
+            {["EN","DE","DA"].map(l=>(
+              <button key={l} className={l===lang?"active":""} onClick={()=>setLang(l)}>{l}</button>
+            ))}
+          </div>
+          <a href="#contact" className="btn btn-primary btn-sm nav-cta-btn">{t.nav.cta} <Arrow size={12}/></a>
+          <button
+            className={"nav-burger" + (open ? " open" : "")}
+            aria-label="Menu"
+            aria-expanded={open}
+            onClick={()=>setOpen(o=>!o)}
+          >
+            <span/><span/><span/>
+          </button>
+        </div>
+      </div>
+
+      <div className={"nav-drawer" + (open ? " open" : "")} onClick={close}>
+        <div className="nav-drawer-inner" onClick={e=>e.stopPropagation()}>
+          <div className="nav-drawer-links">
+            <a href="#services" onClick={close}>{t.nav.services}</a>
+            <a href="#approach" onClick={close}>{t.nav.approach}</a>
+            <a href="#proof" onClick={close}>{t.nav.results}</a>
+            <a href="#pricing" onClick={close}>{t.nav.pricing}</a>
+            <a href="#faq" onClick={close}>{t.nav.faq}</a>
+          </div>
+          <div className="nav-drawer-langs">
+            {["EN","DE","DA"].map(l=>(
+              <button key={l} className={l===lang?"active":""} onClick={()=>setLang(l)}>{l}</button>
+            ))}
+          </div>
+          <div className="nav-drawer-contact">
+            <a href={`tel:${PHONES.MD.replace(/\s/g,"")}`}><Phone/> MD {PHONES.MD}</a>
+            <a href={`tel:${PHONES.UK.replace(/\s/g,"")}`}><Phone/> UK {PHONES.UK}</a>
+            <a href={`tel:${PHONES.RO.replace(/\s/g,"")}`}><Phone/> RO {PHONES.RO}</a>
+          </div>
+          <a href="#contact" className="btn btn-primary nav-drawer-cta" onClick={close}>{t.nav.cta} <Arrow size={12}/></a>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+const Ticker = () => {
+  const {t} = useLang();
+  const items = t.ticker;
+  return (
+    <div className="ticker" aria-hidden="true">
+      <div className="ticker-track">
+        {[...items, ...items].map((txt,i)=>(
+          <span key={i} className="ticker-item"><span className="ticker-dot"/>{txt}</span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const Hero = () => {
+  const {t} = useLang();
+  return (
+    <section className="hero">
+      <div className="wrap hero-grid">
+        <div className="hero-copy">
+          <div className="hero-eyebrow eyebrow">
+            <span className="live-dot"/> {t.hero.eyebrow}
+          </div>
+          <h1>
+            {t.hero.h1_a}<br/>
+            <em>{t.hero.h1_em}</em> {t.hero.h1_b}
+          </h1>
+          <p className="hero-sub">{t.hero.sub}</p>
+          <div className="hero-cta">
+            <a href="#contact" className="btn btn-primary">{t.hero.ctaPrimary} <Arrow/></a>
+            <a href={`tel:${PHONES.MD.replace(/\s/g,"")}`} className="btn btn-ghost">
+              <Phone/> {PHONES.MD}
+            </a>
+          </div>
+
+          <div className="hero-kpi">
+            <div><div className="num"><CountUp value={60} suffix="%" prefix="−"/></div><div className="lbl">{t.hero.kpi[0].lbl}</div></div>
+            <div><div className="num"><CountUp value={11} suffix=" min"/></div><div className="lbl">{t.hero.kpi[1].lbl}</div></div>
+            <div><div className="num">C1</div><div className="lbl">{t.hero.kpi[2].lbl}</div></div>
+            <div><div className="num">CET</div><div className="lbl">{t.hero.kpi[3].lbl}</div></div>
+          </div>
+        </div>
+
+        <HeroVisual/>
+      </div>
+      <Ticker/>
+    </section>
+  );
+};
+
+const ServiceCard = ({s, n}) => {
+  const ref = useReveal();
+  return (
+    <div ref={ref} className="svc-card reveal">
+      <span className="svc-num">{n}</span>
+      <h3>{s.title}</h3>
+      <p>{s.desc}</p>
+      <div className="svc-tags">
+        {s.tags.map(t=><span key={t} className="tag">{t}</span>)}
+      </div>
+    </div>
+  );
+};
+
+const Services = () => {
+  const {t} = useLang();
+  return (
+    <section className="section services" id="services">
+      <div className="wrap">
+        <div className="section-head">
+          <div className="eyebrow">{t.services.eyebrow}</div>
+          <h2>{t.services.h2_a} <em>{t.services.h2_em}</em> {t.services.h2_b}</h2>
+        </div>
+        <div className="svc-grid">
+          {t.services.items.map((s,i)=>(
+            <ServiceCard key={i} s={s} n={`0${i+1}`}/>
+          ))}
+        </div>
+        <div className="svc-footer">
+          <span className="mono">{t.services.bespokeLabel}</span>
+          <a href="#contact" className="link">{t.services.bespokeLink} <Arrow/></a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Testimonials = () => {
+  const {t} = useLang();
+  const ref = useReveal();
+  return (
+    <section className="section testim-section" id="proof-quotes">
+      <div className="wrap" ref={ref}>
+        <div className="section-head">
+          <div className="eyebrow">{t.testim.eyebrow}</div>
+          <h2>{t.testim.h2_a} <em>{t.testim.h2_em}</em></h2>
+        </div>
+        <div className="testim-grid">
+          {t.testim.items.map((item,k)=>(
+            <figure key={k} className="testim" style={{transitionDelay:`${k*120}ms`}}>
+              <blockquote>{item.body}</blockquote>
+              <figcaption>
+                <div className="name">{item.name}</div>
+                <div className="role">{item.role}</div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const FAQ = () => {
+  const {t} = useLang();
+  const [open, setOpen] = React.useState(0);
+  return (
+    <section className="section faq-section" id="faq">
+      <div className="wrap">
+        <div className="faq-wrap">
+          <div className="faq-side">
+            <div className="eyebrow">{t.faq.eyebrow}</div>
+            <h3>{t.faq.h3_a}<br/>{t.faq.h3_b}</h3>
+            <p>{t.faq.p}</p>
+            <div className="faq-contacts">
+              <a href={`tel:${PHONES.MD.replace(/\s/g,"")}`} className="faq-contact">
+                <Phone/> <span><b>{t.faq.lblMD}</b>{PHONES.MD}</span>
+              </a>
+              <a href={`tel:${PHONES.UK.replace(/\s/g,"")}`} className="faq-contact">
+                <Phone/> <span><b>{t.faq.lblUK}</b>{PHONES.UK}</span>
+              </a>
+              <a href={`tel:${PHONES.RO.replace(/\s/g,"")}`} className="faq-contact">
+                <Phone/> <span><b>{t.faq.lblRO}</b>{PHONES.RO}</span>
+              </a>
+            </div>
+          </div>
+          <div className="faq-list">
+            {t.faq.items.map((f,i)=>(
+              <div key={i} className={"faq-item"+(open===i?" open":"")}>
+                <button className="faq-q" onClick={()=>setOpen(open===i?-1:i)}>
+                  <span>{f.q}</span>
+                  <span className="plus"/>
+                </button>
+                <div className="faq-a"><p>{f.a}</p></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Footer = () => {
+  const {t} = useLang();
+  return (
+    <footer className="foot">
+      <div className="wrap foot-inner">
+        <div className="foot-brand">
+          <a href="#" className="brand">
+            <div className="brand-mark"/>
+            <div className="brand-name">Veritas Code</div>
+          </a>
+          <p>{t.foot.tag}</p>
+        </div>
+        <div>
+          <h4>{t.foot.hServices}</h4>
+          <ul>
+            {t.foot.svcItems.map((s,i)=>(
+              <li key={i}><a href={s.h}>{s.l}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h4>{t.foot.hCompany}</h4>
+          <ul>
+            {t.foot.coItems.map((c,i)=>(
+              <li key={i}><a href={c.h}>{c.l}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h4>{t.foot.hCall}</h4>
+          <ul className="foot-phones">
+            <li><span className="fp-lbl">MD</span><a href={`tel:${PHONES.MD.replace(/\s/g,"")}`}>{PHONES.MD}</a></li>
+            <li><span className="fp-lbl">UK</span><a href={`tel:${PHONES.UK.replace(/\s/g,"")}`}>{PHONES.UK}</a></li>
+            <li><span className="fp-lbl">RO</span><a href={`tel:${PHONES.RO.replace(/\s/g,"")}`}>{PHONES.RO}</a></li>
+          </ul>
+          <a href={`mailto:${EMAILS.MAIN}`} className="foot-mail">{EMAILS.MAIN}</a>
+        </div>
+      </div>
+      <div className="wrap foot-bottom">
+        <div>© 2026 Veritas Code SRL · Chișinău · London · Brașov</div>
+        <div>{t.foot.legal}</div>
+      </div>
+    </footer>
+  );
+};
+
+Object.assign(window, { Nav, Hero, Ticker, Services, Testimonials, FAQ, Footer, PHONES, EMAILS });
+
+
+// ===== src/pricing.jsx =====
+// Pricing — 3 plans, clean, no calculator
+
+const Pricing = () => {
+  const {t} = useLang();
+  const p = t.pricing;
+  const [starter, growth, scale] = p.plans;
+  return (
+    <section className="section pricing-section" id="pricing">
+      <div className="wrap">
+        <div className="section-head">
+          <div className="eyebrow">{p.eyebrow}</div>
+          <h2>{p.h2_a} <em>{p.h2_em}</em></h2>
+        </div>
+
+        <div className="plans">
+          <div className="plan">
+            <div className="plan-head">
+              <div className="plan-name">{starter.name}</div>
+              <div className="plan-desc">{starter.desc}</div>
+            </div>
+            <div className="plan-price">
+              <span className="cur">{p.from}</span><span className="amt">{starter.amt}</span><span className="per">{p.per}</span>
+            </div>
+            <ul>
+              {starter.features.map((f,i)=><li key={i}>{f}</li>)}
+            </ul>
+            <a href="#contact" className="btn btn-ghost">{starter.cta} <Arrow/></a>
+          </div>
+
+          <div className="plan featured">
+            <div className="flag-top">{p.mostChosen}</div>
+            <div className="plan-head">
+              <div className="plan-name">{growth.name}</div>
+              <div className="plan-desc">{growth.desc}</div>
+            </div>
+            <div className="plan-price">
+              <span className="cur">{p.from}</span><span className="amt">{growth.amt}</span><span className="per">{p.per}</span>
+            </div>
+            <ul>
+              {growth.features.map((f,i)=><li key={i}>{f}</li>)}
+            </ul>
+            <a href="#contact" className="btn btn-primary">{growth.cta} <Arrow/></a>
+          </div>
+
+          <div className="plan">
+            <div className="plan-head">
+              <div className="plan-name">{scale.name}</div>
+              <div className="plan-desc">{scale.desc}</div>
+            </div>
+            <div className="plan-price">
+              <span className="cur">{p.from}</span><span className="amt">{scale.amt}</span><span className="per">{p.per}</span>
+            </div>
+            <ul>
+              {scale.features.map((f,i)=><li key={i}>{f}</li>)}
+            </ul>
+            <a href="#contact" className="btn btn-ghost">{scale.cta} <Arrow/></a>
+          </div>
+        </div>
+
+        <div className="pricing-foot mono">
+          {p.footLine}
+          <a href="#contact" className="link">{p.footLink} <Arrow/></a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+Object.assign(window, { Pricing });
+
+
+// ===== src/desk.jsx =====
+// Proof strip — numbers only, no fake app window
+
+const Desk = () => {
+  const {t} = useLang();
+  const d = t.desk;
+  return (
+    <section className="section desk-section" id="proof">
+      <div className="wrap">
+        <div className="section-head">
+          <div className="eyebrow">{d.eyebrow}</div>
+          <h2>{d.h2_a} <em>{d.h2_em}</em></h2>
+        </div>
+
+        <div className="proof-grid">
+          <div className="proof-item">
+            <div className="proof-num"><CountUp value={11}/><span className="u">min</span></div>
+            <div className="proof-lbl">{d.items[0].lbl}</div>
+            <p>{d.items[0].p}</p>
+          </div>
+          <div className="proof-item">
+            <div className="proof-num"><CountUp value={72}/><span className="u">%</span></div>
+            <div className="proof-lbl">{d.items[1].lbl}</div>
+            <p>{d.items[1].p}</p>
+          </div>
+          <div className="proof-item">
+            <div className="proof-num"><CountUp value={4.8}/><span className="u">/ 5</span></div>
+            <div className="proof-lbl">{d.items[2].lbl}</div>
+            <p>{d.items[2].p}</p>
+          </div>
+          <div className="proof-item">
+            <div className="proof-num"><CountUp value={60} prefix="−"/><span className="u">%</span></div>
+            <div className="proof-lbl">{d.items[3].lbl}</div>
+            <p>{d.items[3].p}</p>
+          </div>
+        </div>
+
+        <figure className="proof-quote">
+          <blockquote>{d.quote}</blockquote>
+          <figcaption>
+            <span className="name">{d.quoteName}</span>
+            <span className="role">{d.quoteRole}</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  );
+};
+
+Object.assign(window, { Desk });
+
+
+// ===== src/map.jsx =====
+// Languages + coverage — compact split card inside white page
+
+const Languages = () => {
+  const {t} = useLang();
+  const c = t.coverage;
+  const [now, setNow] = React.useState(new Date());
+  React.useEffect(()=>{
+    const timer = setInterval(()=>setNow(new Date()), 60000);
+    return ()=>clearInterval(timer);
+  },[]);
+  const hour = (now.getUTCHours() + 1 + now.getUTCMinutes()/60);
+
+  return (
+    <section className="section coverage-section" id="approach">
+      <div className="wrap">
+        <div className="section-head">
+          <div className="eyebrow">{c.eyebrow}</div>
+          <h2>{c.h2_a} <em>{c.h2_em}</em></h2>
+        </div>
+
+        <div className="coverage-card">
+          <div className="coverage-langs">
+            <div className="coverage-label mono">{c.nativeLabel}</div>
+            <ul>
+              {c.langs.map(l=>(
+                <li key={l.code}>
+                  <Flag code={l.flag}/>
+                  <div className="lang-name">{l.name}</div>
+                  <div className="lang-country">{l.country}</div>
+                  <div className="lang-level">{l.level}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="coverage-tz">
+            <div className="coverage-label mono">{c.hoursLabel}</div>
+            <div className="tz-bar">
+              {Array.from({length:24}).map((_,h)=>{
+                const on = h>=8 && h<18;
+                const core = h>=9 && h<12 || h>=13 && h<17;
+                return <div key={h} className={"tz-cell"+(on?" on":"")+(core?" core":"")}/>;
+              })}
+              <div className="tz-now" style={{left:`${(hour/24)*100}%`}}/>
+            </div>
+            <div className="tz-legend mono">
+              <span>00</span><span>06</span><span>12</span><span>18</span><span>24</span>
+            </div>
+            <div className="coverage-stats">
+              <div>
+                <div className="stat-num">08–18</div>
+                <div className="stat-lbl mono">{c.stat1Lbl}</div>
+              </div>
+              <div>
+                <div className="stat-num">CET±0</div>
+                <div className="stat-lbl mono">{c.stat2Lbl}</div>
+              </div>
+              <div>
+                <div className="stat-num">{c.stat3}</div>
+                <div className="stat-lbl mono">{c.stat3Lbl}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+Object.assign(window, { Languages });
+
+
+// ===== src/onboarding.jsx =====
+// Onboarding — three steps, single compact form, centered
+
+const Onboarding = () => {
+  const {t} = useLang();
+  const o = t.onb;
+  const BLANK = {name:"",email:"",company:"",size:"15–50",msg:""};
+  const [form, setForm] = React.useState(BLANK);
+  const [submitted, setSubmitted] = React.useState(false);
+  const set = (k,v) => setForm(f=>({...f,[k]:v}));
+
+  const submit = () => {
+    const to = (window.EMAILS && window.EMAILS.MAIN) || "info@veritascode.net";
+    const subject = `Veritas Code enquiry — ${form.company || form.name || "new lead"}`;
+    const lines = [
+      `Name:     ${form.name}`,
+      `Email:    ${form.email}`,
+      `Company:  ${form.company}`,
+      `Size:     ${form.size}`,
+      ``,
+      `What they would delegate first:`,
+      form.msg || "(not provided)",
+      ``,
+      `— Sent from veritascode.net contact form`,
+    ];
+    const body = lines.join("\n");
+    const href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    try { window.location.href = href; } catch(_) {}
+    setSubmitted(true);
+  };
+
+  React.useEffect(() => {
+    if (!submitted) return;
+    const id = setTimeout(() => {
+      setSubmitted(false);
+      setForm(BLANK);
+    }, 5000);
+    return () => clearTimeout(id);
+  }, [submitted]);
+
+  return (
+    <section className="onb-section" id="contact">
+      <div className="wrap">
+        <div className="section-head onb-head">
+          <div className="eyebrow">{o.eyebrow}</div>
+          <h2>{o.h2_a} <em>{o.h2_em}</em></h2>
+        </div>
+
+        <div className="onb-steps">
+          {o.steps.map((s,i)=>(
+            <div key={i} className="onb-step">
+              <div className="onb-step-n mono">{o.stepLbl} {String(i+1).padStart(2,"0")}</div>
+              <h4>{s.t}</h4>
+              <p>{s.d}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="onb-form">
+          {submitted ? (
+            <div className="onb-thanks">
+              <div className="onb-thanks-h">{o.thanks}</div>
+              <p>{o.thanksP}</p>
+            </div>
+          ) : (
+            <>
+              <div className="onb-form-head">
+                <h3>{o.formH}</h3>
+                <p>{o.formP}</p>
+                <div className="onb-phones">
+                  <a href={`tel:${PHONES.MD.replace(/\s/g,"")}`}><Phone/> MD {PHONES.MD}</a>
+                  <a href={`tel:${PHONES.UK.replace(/\s/g,"")}`}><Phone/> UK {PHONES.UK}</a>
+                  <a href={`tel:${PHONES.RO.replace(/\s/g,"")}`}><Phone/> RO {PHONES.RO}</a>
+                </div>
+              </div>
+              <div className="onb-fields">
+                <div className="fld-row">
+                  <div className="fld"><label>{o.lblName}</label><input value={form.name} onChange={e=>set("name",e.target.value)} placeholder={o.phName}/></div>
+                  <div className="fld"><label>{o.lblEmail}</label><input value={form.email} onChange={e=>set("email",e.target.value)} placeholder={o.phEmail}/></div>
+                </div>
+                <div className="fld-row">
+                  <div className="fld"><label>{o.lblCompany}</label><input value={form.company} onChange={e=>set("company",e.target.value)} placeholder={o.phCompany}/></div>
+                  <div className="fld">
+                    <label>{o.lblSize}</label>
+                    <div className="seg seg-dark">
+                      {["5–15","15–50","50–150","150+"].map(s=>(
+                        <button key={s} type="button"
+                          className={form.size===s?"active":""}
+                          onClick={()=>set("size",s)}>{s}</button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="fld">
+                  <label>{o.lblDelegate}</label>
+                  <textarea rows="3" value={form.msg} onChange={e=>set("msg",e.target.value)} placeholder={o.phDelegate}/>
+                </div>
+                <div className="onb-submit">
+                  <span className="note mono">{o.note}</span>
+                  <button className="btn btn-primary" onClick={submit}>{o.send} <Arrow/></button>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+Object.assign(window, { Onboarding });
+
+
+// ===== src/app.jsx =====
+// Root app + tweaks panel
+
+const ACCENTS = {
+  default: {ink:"#0693e3", label:"Veritas cyan"},
+  navy:    {ink:"#0a47a0", label:"Deep navy"},
+  forest:  {ink:"#2f6f4a", label:"Forest"},
+  ink:     {ink:"#0a1a2f", label:"Ink"},
+};
+
+const TweaksPanel = ({tweaks,setT}) => (
+  <div className="tweaks-panel">
+    <h4>Tweaks</h4>
+    <div className="tweak-row">
+      <label>Accent</label>
+      <div className="swatches">
+        {Object.entries(ACCENTS).map(([k,v])=>(
+          <button key={k} className={"sw-btn"+(tweaks.accent===k?" active":"")}
+            style={{background:v.ink}} onClick={()=>setT({accent:k})} title={v.label}/>
+        ))}
+      </div>
+    </div>
+    <div className="tweak-row">
+      <label>Display type</label>
+      <button className={"toggle"+(tweaks.serifHero?" on":"")} onClick={()=>setT({serifHero:!tweaks.serifHero})}/>
+    </div>
+  </div>
+);
+
+const App = () => {
+  const [tweaks, setTweaks] = React.useState(window.TWEAKS || {});
+
+  React.useEffect(()=>{
+    document.body.className = (tweaks.accent && tweaks.accent!=="default") ? "accent-"+tweaks.accent : "";
+    document.documentElement.style.setProperty("--display",
+      tweaks.serifHero ? '"Instrument Serif", Georgia, serif' : '"Syne", system-ui, sans-serif');
+  }, [tweaks]);
+
+  const setT = (patch) => {
+    setTweaks(prev => ({...prev, ...patch}));
+  };
+
+  return (
+    <>
+      <Nav/>
+      <Hero/>
+      <Services/>
+      <Languages/>
+      <Desk/>
+      <Pricing/>
+      <Testimonials/>
+      <FAQ/>
+      <Onboarding/>
+      <Footer/>
+    </>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById("app")).render(
+  <LangProvider><App/></LangProvider>
+);
+
+
+</script></body>
 </html>
