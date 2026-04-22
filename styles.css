@@ -108,6 +108,11 @@ em{font-style:italic;color:var(--accent)}
 .nav-links a{position:relative;font-weight:500}
 .nav-links a:hover{color:var(--accent-ink)}
 .nav-cta{display:flex;align-items:center;gap:16px}
+/* Fixed-width nav CTA so the header doesn't reflow between languages.
+   The widest label is DE "Gespräch buchen" — width sized to fit it plus
+   the trailing arrow with the same .btn-sm padding on all locales. Content
+   is centered so shorter EN / SV labels sit visually balanced. */
+.nav-cta-btn{min-width:170px;justify-content:center}
 .nav-phone{
   display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--ink-2);
   font-family:var(--mono);letter-spacing:.03em;transition:color .15s;
