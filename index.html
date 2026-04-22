@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,7 +10,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
 <link rel="apple-touch-icon" href="assets/favicon-512.png">
-<link rel="stylesheet" href="styles.css?v=15">
+<link rel="stylesheet" href="styles.css?v=16">
 </head>
 <body>
 <div id="app"></div>
@@ -41,7 +40,7 @@ const LOCALES = {
     hero: {
       eyebrow: "Near-shore IT pods · EU time zones",
       h1_a: "Your IT team,", h1_em: "just across", h1_b: "the border.",
-      sub: "Dedicated helpdesk and IT operations pods for European SMBs. Fluent English, German, French and Danish — in your timezone, at Moldova rates.",
+      sub: "Dedicated helpdesk and IT operations pods for European SMBs. Fluent English, German, French and Swedish — in your timezone, at Moldova rates.",
       ctaPrimary: "Book a discovery call",
       kpi: [
         { lbl:"vs. local EU MSPs" },
@@ -52,7 +51,7 @@ const LOCALES = {
     },
     ticker: [
       "Berlin · ticket #4821 resolved · 2m 14s",
-      "Copenhagen · M365 tenant patched",
+      "Stockholm · M365 tenant patched",
       "Rotterdam · firewall rules pushed",
       "Vienna · CSAT 5 / 5",
       "Munich · Business Central sync green",
@@ -60,7 +59,7 @@ const LOCALES = {
     ],
     heroChips: [
       {city:"Berlin", text:"ticket resolved · 2m"},
-      {city:"Copenhagen", text:"M365 sync"},
+      {city:"Stockholm", text:"M365 sync"},
       {city:"Amsterdam", text:"all clear"},
     ],
     services: {
@@ -92,7 +91,7 @@ const LOCALES = {
         { code:"EN", name:"English", country:"UK · IE · global", level:"C1 · fluent",       flag:"UK" },
         { code:"DE", name:"German",  country:"DE · AT · CH",     level:"C1 · fluent",       flag:"DE" },
         { code:"FR", name:"French",  country:"FR · BE · LU",     level:"C1 · fluent",       flag:"FR" },
-        { code:"DA", name:"Danish",  country:"DK",               level:"B2 · professional", flag:"DK" },
+        { code:"SV", name:"Swedish", country:"SE",               level:"B2 · professional", flag:"SE" },
         { code:"NL", name:"Dutch",   country:"NL · BE",          level:"B2 · professional", flag:"NL" },
       ],
       stat1Lbl:"Standard · CET",
@@ -131,7 +130,7 @@ const LOCALES = {
         { name:"IT Wizzard",
           desc:"A dedicated senior for M365 tenant work, cloud, ERP and security — the specialist you'd struggle to hire locally.",
           amt:"3,290",
-          features:["Full-time · 160h/month","M365 / Azure / AWS · ERP · security · L3","EN / DE / FR / DA / NL at C1","12×5 CET","Dedicated · no rotation"],
+          features:["Full-time · 160h/month","M365 / Azure / AWS · ERP · security · L3","EN / DE / FR / SV / NL at C1","12×5 CET","Dedicated · no rotation"],
           cta:"Book a discovery call" },
       ],
       footLine:"All rates are per specialist, full-time. Part-time slices (20h / 40h / 80h per month) available pro-rata. Typical total savings vs. local EU hire: 40–60%. Contracts include a 3–6% annual price-review clause.",
@@ -142,7 +141,7 @@ const LOCALES = {
       h2_a:"Quiet competence.", h2_em:"Loud savings.",
       items: [
         { body:"We replaced a local MSP that billed per ticket. Veritas sent us a team of four who learned our stack in a fortnight. Tickets dropped 40% because the same people close them every morning.",
-          name:"Henrik Ø.", role:"CEO · B2B SaaS · Copenhagen" },
+          name:"Henrik Ö.", role:"CEO · B2B SaaS · Stockholm" },
         { body:"Proper German, proper CET hours, proper invoices. My staff forgot they weren't in the next office. That's the whole pitch.",
           name:"Dr. Annika R.", role:"COO · Mittelstand manufacturer · Munich" },
       ],
@@ -160,7 +159,7 @@ const LOCALES = {
         { q:"GDPR and data residency?",
           a:"Moldova has an EU adequacy decision in progress and we operate under EU-aligned DPAs with SCCs in place today. Data can stay on EU infrastructure of your choice — we manage it, we don't store it." },
         { q:"What languages, at what level — and how is that verified?",
-          a:"English, German and French at C1 (fluent); Danish and Dutch at B2 (professional working proficiency). Every engineer sits a Cambridge Linguaskill or EF SET test before hire — we won't put anyone below B2 in front of your users, and scores go in your pod file. Romanian and Russian available as needed." },
+          a:"English, German and French at C1 (fluent); Swedish and Dutch at B2 (professional working proficiency). Every engineer sits a Cambridge Linguaskill or EF SET test before hire — we won't put anyone below B2 in front of your users, and scores go in your pod file. Romanian and Russian available as needed." },
         { q:"How do you keep the same engineers on our account?",
           a:"Published five-level career ladder, tenure bonuses at 12/24/36 months, private health insurance, a dedicated training budget (AWS/Azure certs, English classes) and hybrid work. Attrition stays in the low teens — the engineer you onboard next quarter is still on your account next year." },
         { q:"Business continuity — what if something happens in Moldova?",
@@ -190,7 +189,7 @@ const LOCALES = {
       phDelegate:"A sentence about your current setup, if you'd like.",
       note:"No auto-responder. Human reply within one business day.",
       send:"Send it over",
-      thanks:"Tak. Danke. Thanks.",
+      thanks:"Tack. Danke. Thanks.",
       thanksP:"We'll reply within one business day from a named engineer — not a generic sales inbox.",
     },
     foot: {
@@ -220,7 +219,7 @@ const LOCALES = {
     hero: {
       eyebrow: "Nearshore IT-Teams · EU-Zeitzonen",
       h1_a: "Ihr IT-Team,", h1_em: "gleich jenseits", h1_b: "der Grenze.",
-      sub: "Dedizierte Helpdesk- und IT-Operations-Teams für europäische KMUs. Fließend in Englisch, Deutsch, Französisch und Dänisch — in Ihrer Zeitzone, zu moldauischen Preisen.",
+      sub: "Dedizierte Helpdesk- und IT-Operations-Teams für europäische KMUs. Fließend in Englisch, Deutsch, Französisch und Schwedisch — in Ihrer Zeitzone, zu moldauischen Preisen.",
       ctaPrimary: "Erstgespräch buchen",
       kpi: [
         { lbl:"ggü. lokalen EU-MSPs" },
@@ -231,7 +230,7 @@ const LOCALES = {
     },
     ticker: [
       "Berlin · Ticket #4821 gelöst · 2m 14s",
-      "Kopenhagen · M365-Tenant gepatcht",
+      "Stockholm · M365-Tenant gepatcht",
       "Rotterdam · Firewall-Regeln ausgerollt",
       "Wien · CSAT 5 / 5",
       "München · Business-Central-Sync grün",
@@ -239,7 +238,7 @@ const LOCALES = {
     ],
     heroChips: [
       {city:"Berlin", text:"Ticket gelöst · 2m"},
-      {city:"Kopenhagen", text:"M365-Sync"},
+      {city:"Stockholm", text:"M365-Sync"},
       {city:"Amsterdam", text:"alles klar"},
     ],
     services: {
@@ -271,7 +270,7 @@ const LOCALES = {
         { code:"EN", name:"Englisch",       country:"UK · IE · global", level:"C1 · fließend",           flag:"UK" },
         { code:"DE", name:"Deutsch",        country:"DE · AT · CH",     level:"C1 · fließend",           flag:"DE" },
         { code:"FR", name:"Französisch",    country:"FR · BE · LU",     level:"C1 · fließend",           flag:"FR" },
-        { code:"DA", name:"Dänisch",        country:"DK",               level:"B2 · verhandlungssicher", flag:"DK" },
+        { code:"SV", name:"Schwedisch",     country:"SE",               level:"B2 · verhandlungssicher", flag:"SE" },
         { code:"NL", name:"Niederländisch", country:"NL · BE",          level:"B2 · verhandlungssicher", flag:"NL" },
       ],
       stat1Lbl:"Standard · MEZ",
@@ -310,7 +309,7 @@ const LOCALES = {
         { name:"IT Wizzard",
           desc:"Ein dedizierter Senior für M365-Tenant-Arbeit, Cloud, ERP und Sicherheit — das Profil, das Sie lokal kaum finden.",
           amt:"3.290",
-          features:["Vollzeit · 160 Std./Monat","M365 / Azure / AWS · ERP · Sicherheit · L3","EN / DE / FR / DA / NL auf C1","12×5 MEZ","Dediziert · keine Rotation"],
+          features:["Vollzeit · 160 Std./Monat","M365 / Azure / AWS · ERP · Sicherheit · L3","EN / DE / FR / SV / NL auf C1","12×5 MEZ","Dediziert · keine Rotation"],
           cta:"Erstgespräch buchen" },
       ],
       footLine:"Alle Preise verstehen sich pro Spezialist in Vollzeit. Teilzeit-Kontingente (20h / 40h / 80h pro Monat) anteilig verfügbar. Typische Gesamteinsparungen ggü. lokaler EU-Einstellung: 40–60 %. Verträge enthalten eine jährliche Preisanpassungsklausel von 3–6 %.",
@@ -321,7 +320,7 @@ const LOCALES = {
       h2_a:"Stille Kompetenz.", h2_em:"Laute Einsparungen.",
       items: [
         { body:"Wir haben einen lokalen MSP ersetzt, der pro Ticket abrechnete. Veritas schickte uns ein Team von vier Leuten, das unseren Stack in zwei Wochen beherrschte. Die Tickets gingen um 40 % zurück, weil die gleichen Leute sie jeden Morgen schließen.",
-          name:"Henrik Ø.", role:"Geschäftsführer · B2B SaaS · Kopenhagen" },
+          name:"Henrik Ö.", role:"Geschäftsführer · B2B SaaS · Stockholm" },
         { body:"Richtiges Deutsch, richtige MEZ-Zeiten, richtige Rechnungen. Meine Mitarbeiter vergaßen, dass sie nicht im Büro nebenan sind. Das ist der ganze Pitch.",
           name:"Dr. Annika R.", role:"COO · Mittelständischer Hersteller · München" },
       ],
@@ -339,7 +338,7 @@ const LOCALES = {
         { q:"DSGVO und Datenresidenz?",
           a:"Für die Republik Moldau ist ein EU-Angemessenheitsbeschluss in Vorbereitung, und wir arbeiten heute schon unter EU-konformen DPAs mit SCCs. Daten können auf EU-Infrastruktur Ihrer Wahl bleiben — wir verwalten sie, speichern sie nicht." },
         { q:"Welche Sprachen, auf welchem Niveau — und wie wird das nachgewiesen?",
-          a:"Englisch, Deutsch und Französisch auf C1 (fließend); Dänisch und Niederländisch auf B2 (verhandlungssicher). Jeder Engineer absolviert vor der Einstellung einen Cambridge-Linguaskill- oder EF-SET-Test — unter B2 kommt niemand vor Ihre Nutzer, und die Ergebnisse liegen in der Team-Akte. Rumänisch und Russisch nach Bedarf." },
+          a:"Englisch, Deutsch und Französisch auf C1 (fließend); Schwedisch und Niederländisch auf B2 (verhandlungssicher). Jeder Engineer absolviert vor der Einstellung einen Cambridge-Linguaskill- oder EF-SET-Test — unter B2 kommt niemand vor Ihre Nutzer, und die Ergebnisse liegen in der Team-Akte. Rumänisch und Russisch nach Bedarf." },
         { q:"Wie behalten Sie dieselben Engineers auf unserem Account?",
           a:"Veröffentlichte fünfstufige Karriereleiter, Treueboni nach 12/24/36 Monaten, private Krankenversicherung, ein festes Weiterbildungsbudget (AWS-/Azure-Zertifikate, Englisch-Kurse) und Hybrid-Arbeit. Fluktuation bleibt im niedrigen zweistelligen Bereich — der Engineer, den Sie nächstes Quartal onboarden, ist nächstes Jahr noch auf Ihrem Account." },
         { q:"Business Continuity — was, wenn in Moldau etwas passiert?",
@@ -369,7 +368,7 @@ const LOCALES = {
       phDelegate:"Ein Satz zu Ihrem aktuellen Setup, wenn Sie mögen.",
       note:"Keine Autoresponder. Antwort von einem Menschen innerhalb eines Werktages.",
       send:"Abschicken",
-      thanks:"Tak. Danke. Thanks.",
+      thanks:"Tack. Danke. Thanks.",
       thanksP:"Wir melden uns innerhalb eines Werktages — von einem namentlichen Engineer, nicht einer generischen Sales-Adresse.",
     },
     foot: {
@@ -393,182 +392,182 @@ const LOCALES = {
     },
   },
 
-  DA: {
-    htmlLang: "da",
-    nav: { services:"Ydelser", approach:"Tilgang", results:"Resultater", pricing:"Priser", faq:"FAQ", cta:"Book samtale" },
+  SV: {
+    htmlLang: "sv",
+    nav: { services:"Tjänster", approach:"Arbetssätt", results:"Resultat", pricing:"Priser", faq:"FAQ", cta:"Boka samtal" },
     hero: {
-      eyebrow: "Nearshore IT-teams · EU-tidszoner",
-      h1_a: "Dit IT-team,", h1_em: "lige på den anden", h1_b: "side af grænsen.",
-      sub: "Dedikerede helpdesk- og IT-driftsteams til europæiske SMV'er. Flydende engelsk, tysk, fransk og dansk — i din tidszone, til moldoviske priser.",
-      ctaPrimary: "Book et introduktionsmøde",
+      eyebrow: "Nearshore IT-team · EU-tidszoner",
+      h1_a: "Ditt IT-team,", h1_em: "precis över", h1_b: "gränsen.",
+      sub: "Dedikerade helpdesk- och IT-driftsteam för europeiska SMB-företag. Flytande engelska, tyska, franska och svenska — i din tidszon, till moldaviska priser.",
+      ctaPrimary: "Boka introduktionssamtal",
       kpi: [
-        { lbl:"vs. lokale EU-MSP'er" },
-        { lbl:"Median første svar" },
-        { lbl:"Sprogniveau" },
-        { lbl:"Samme tider" },
+        { lbl:"mot lokala EU-MSP:er" },
+        { lbl:"Median första svar" },
+        { lbl:"Språknivå" },
+        { lbl:"Samma tider" },
       ],
     },
     ticker: [
-      "Berlin · ticket #4821 løst · 2m 14s",
-      "København · M365-tenant patched",
-      "Rotterdam · firewall-regler pushed",
+      "Berlin · ärende #4821 löst · 2m 14s",
+      "Stockholm · M365-tenant patchad",
+      "Rotterdam · brandväggsregler utrullade",
       "Wien · CSAT 5 / 5",
-      "München · Business Central sync grøn",
-      "Dublin · vagt-team · alt klar",
+      "München · Business Central-sync grön",
+      "Dublin · jourteam · allt lugnt",
     ],
     heroChips: [
-      {city:"Berlin", text:"ticket løst · 2m"},
-      {city:"København", text:"M365-sync"},
-      {city:"Amsterdam", text:"alt klar"},
+      {city:"Berlin", text:"ärende löst · 2m"},
+      {city:"Stockholm", text:"M365-sync"},
+      {city:"Amsterdam", text:"allt lugnt"},
     ],
     services: {
-      eyebrow:"Ydelser",
-      h2_a:"Fire ting, vi driver", h2_em:"stille og roligt,", h2_b:"hver dag.",
-      bespokeLabel:"Har du brug for noget skræddersyet?",
-      bespokeLink:"Fortæl os om det",
+      eyebrow:"Tjänster",
+      h2_a:"Fyra saker vi kör", h2_em:"tyst och stilla,", h2_b:"varje dag.",
+      bespokeLabel:"Behöver du något skräddarsytt?",
+      bespokeLink:"Berätta för oss",
       items: [
-        { title:"Helpdesk med navn",
-          desc:"L1- og L2-support leveret af et lille, navngivet team, der lærer jeres folk og jeres stack at kende. Chat, e-mail, telefon. Eskaleringer med fuld kontekst — ikke ticket-kast.",
-          tags:["Chat","E-mail","Telefon","Slack / Teams"] },
+        { title:"Helpdesk med namn",
+          desc:"L1- och L2-support levererad av ett litet, namngivet team som lär känna era människor och er stack. Chatt, e-post, telefon. Eskaleringar med full kontext — ingen ärende-pingpong.",
+          tags:["Chatt","E-post","Telefon","Slack / Teams"] },
         { title:"M365 & Workspace",
-          desc:"Tenant-administration, identitet, device-posture, mailbox-hygiejne og licens-afstemning. Governance uden jargon, reviews uden PowerPoint.",
+          desc:"Tenant-administration, identitet, enhetsstatus, brevlåde-hygien och licens-avstämning. Styrning utan jargong, granskning utan PowerPoint.",
           tags:["Entra ID","Intune","Exchange","Workspace"] },
-        { title:"Netværk, endpoint, cloud",
-          desc:"Firewalls, Wi-Fi, MDM, patching. AWS, Azure eller GCP day-2 drift. Stille infrastruktur, der bliver rigtigt dimensioneret før fornyelsessæsonen, ikke efter.",
+        { title:"Nätverk, endpoint, moln",
+          desc:"Brandväggar, Wi-Fi, MDM, patching. AWS, Azure eller GCP day-2-drift. Tyst infrastruktur som rätt-dimensioneras före förnyelsesäsongen, inte efter.",
           tags:["Fortinet","Meraki","AWS","Azure"] },
-        { title:"ERP, CRM & interne apps",
-          desc:"Second-line support til Business Central, NetSuite, HubSpot, Salesforce og appen, som tre stiftere før byggede. Vi læser kode, skriver runbooks, bliver hængende.",
+        { title:"ERP, CRM & interna appar",
+          desc:"Second-line-support för Business Central, NetSuite, HubSpot, Salesforce och appen som tre grundare tidigare byggdes. Vi läser kod, skriver runbooks, stannar kvar.",
           tags:["BC / NAV","NetSuite","HubSpot","Legacy"] },
       ],
     },
     coverage: {
-      eyebrow:"Dækning",
-      h2_a:"Dit sprog.", h2_em:"Dine tider.",
-      nativeLabel:"Sprog vi arbejder på",
-      hoursLabel:"Arbejdstider · CET",
+      eyebrow:"Täckning",
+      h2_a:"Ditt språk.", h2_em:"Dina tider.",
+      nativeLabel:"Språk vi arbetar på",
+      hoursLabel:"Arbetstider · CET",
       langs: [
-        { code:"EN", name:"Engelsk",    country:"UK · IE · global", level:"C1 · flydende",     flag:"UK" },
-        { code:"DE", name:"Tysk",       country:"DE · AT · CH",     level:"C1 · flydende",     flag:"DE" },
-        { code:"FR", name:"Fransk",     country:"FR · BE · LU",     level:"C1 · flydende",     flag:"FR" },
-        { code:"DA", name:"Dansk",      country:"DK",               level:"B2 · forhandlingssikker", flag:"DK" },
-        { code:"NL", name:"Hollandsk",  country:"NL · BE",          level:"B2 · forhandlingssikker", flag:"NL" },
+        { code:"EN", name:"Engelska",   country:"UK · IE · global", level:"C1 · flytande",      flag:"UK" },
+        { code:"DE", name:"Tyska",      country:"DE · AT · CH",     level:"C1 · flytande",      flag:"DE" },
+        { code:"FR", name:"Franska",    country:"FR · BE · LU",     level:"C1 · flytande",      flag:"FR" },
+        { code:"SV", name:"Svenska",    country:"SE",               level:"B2 · professionell", flag:"SE" },
+        { code:"NL", name:"Holländska", country:"NL · BE",          level:"B2 · professionell", flag:"NL" },
       ],
       stat1Lbl:"Standard · CET",
       stat2Lbl:"Chișinău ↔ EU",
       stat3:"24 / 7",
-      stat3Lbl:"På forespørgsel",
+      stat3Lbl:"På förfrågan",
     },
     desk: {
-      eyebrow:"Resultater, målt",
-      h2_a:"Bevis,", h2_em:"ikke en PowerPoint.",
+      eyebrow:"Resultat, uppmätt",
+      h2_a:"Bevis,", h2_em:"ingen PowerPoint.",
       items: [
-        { lbl:"Median første respons", p:"På tværs af live-tickets i CET-kernetid, rullende 30 dage." },
-        { lbl:"Løsning ved første kontakt", p:"Lukket uden overdragelse, fordi ingeniøren allerede kender jeres stack." },
-        { lbl:"Rullende CSAT", p:"Ét-klik-vurdering efter hver løst ticket. I ser strømmen, vi gør også." },
-        { lbl:"Totale omkostninger ved IT-drift", p:"Benchmarket mod interne eller lokale-MSP-ækvivalenter på tværs af vores kundebog." },
+        { lbl:"Median första respons", p:"Över live-ärenden under CET-kärntid, rullande 30 dagar." },
+        { lbl:"Lösning vid första kontakt", p:"Stängt utan överlämning, för ingenjören kan redan er stack." },
+        { lbl:"Rullande CSAT", p:"Ett-klicks-betyg efter varje löst ärende. Ni ser strömmen, det gör vi också." },
+        { lbl:"Total IT-driftkostnad", p:"Benchmarkad mot interna eller lokala-MSP-motsvarigheter över vårt kundregister." },
       ],
-      quote: "M365-migrationen blev gennemført på to weekender. Intet drama, ingen opkald klokken 2 om natten. Vi beholdt teamet bagefter til day-2 drift — billigere end at ansætte én intern sysadmin i Amsterdam.",
+      quote: "M365-migrationen gjordes på två helger. Inget drama, inga samtal kl 2 på natten. Vi behöll teamet efteråt för day-2-drift — billigare än att anställa en intern sysadmin i Amsterdam.",
       quoteName:"Joost V.",
-      quoteRole:"Stifter · Logistik · Rotterdam",
+      quoteRole:"Grundare · Logistik · Rotterdam",
     },
     pricing: {
       eyebrow:"Priser",
-      h2_a:"Pris pr. specialist,", h2_em:"ikke pr. ticket.",
-      from:"fra €", per:"/ md · pr. specialist", mostChosen:"Mest valgte",
+      h2_a:"Pris per specialist,", h2_em:"inte per ärende.",
+      from:"från €", per:"/ mån · per specialist", mostChosen:"Mest valda",
       plans: [
         { name:"Junior Helpdesk",
-          desc:"Den billigste måde at tilføje hænder til jeres supportkø. Fuldtid L1, roteret på tværs af et lille team.",
-          amt:"1.290",
-          features:["Fuldtid · 160t/måned","Helpdesk L1","EN / FR på B2","8×5 CET","Roteret på tværs af teamet"],
-          cta:"Tilføj en junior" },
+          desc:"Det billigaste sättet att få fler händer i er supportkö. Heltid L1, roterad över ett litet team.",
+          amt:"1 290",
+          features:["Heltid · 160 tim/månad","Helpdesk L1","EN / FR på B2","8×5 CET","Roterad över teamet"],
+          cta:"Lägg till en junior" },
         { name:"Helpdesk Guru",
-          desc:"En dedikeret mid-level ingeniør, der ejer jeres kø hele vejen — samme person hver morgen.",
-          amt:"2.190",
-          features:["Fuldtid · 160t/måned","Helpdesk L1 / L2","EN / FR / DE på C1","8×5 CET","Dedikeret · ingen rotation"],
-          cta:"Tilføj en specialist" },
+          desc:"En dedikerad mid-level-ingenjör som äger er kö hela vägen — samma person varje morgon.",
+          amt:"2 190",
+          features:["Heltid · 160 tim/månad","Helpdesk L1 / L2","EN / FR / DE på C1","8×5 CET","Dedikerad · ingen rotation"],
+          cta:"Lägg till en specialist" },
         { name:"IT Wizzard",
-          desc:"En dedikeret senior til M365-tenant-arbejde, cloud, ERP og sikkerhed — profilen, I sjældent finder lokalt.",
-          amt:"3.290",
-          features:["Fuldtid · 160t/måned","M365 / Azure / AWS · ERP · sikkerhed · L3","EN / DE / FR / DA / NL på C1","12×5 CET","Dedikeret · ingen rotation"],
-          cta:"Book et introduktionsmøde" },
+          desc:"En dedikerad senior för M365-tenant-arbete, moln, ERP och säkerhet — profilen som är svår att rekrytera lokalt.",
+          amt:"3 290",
+          features:["Heltid · 160 tim/månad","M365 / Azure / AWS · ERP · säkerhet · L3","EN / DE / FR / SV / NL på C1","12×5 CET","Dedikerad · ingen rotation"],
+          cta:"Boka introduktionssamtal" },
       ],
-      footLine:"Alle priser er pr. specialist på fuldtid. Deltids-andele (20t / 40t / 80t pr. måned) tilgængelige pro rata. Typiske samlede besparelser ift. lokal EU-ansættelse: 40–60 %. Kontrakter inkluderer en årlig prisregulerings-klausul på 3–6 %.",
-      footLink:"Få et præcist tilbud",
+      footLine:"Alla priser är per specialist på heltid. Deltidsandelar (20t / 40t / 80t per månad) tillgängliga pro rata. Typiska totala besparingar jämfört med lokal EU-anställning: 40–60 %. Kontrakt inkluderar en årlig prisjusteringsklausul på 3–6 %.",
+      footLink:"Få en exakt offert",
     },
     testim: {
-      eyebrow:"Hvad kunder siger",
-      h2_a:"Stille kompetence.", h2_em:"Høje besparelser.",
+      eyebrow:"Vad kunder säger",
+      h2_a:"Tyst kompetens.", h2_em:"Höga besparingar.",
       items: [
-        { body:"Vi udskiftede en lokal MSP, der fakturerede pr. ticket. Veritas sendte os et team på fire, der lærte vores stack på to uger. Tickets faldt 40 %, fordi de samme folk lukker dem hver morgen.",
-          name:"Henrik Ø.", role:"CEO · B2B SaaS · København" },
-        { body:"Ordentligt tysk, ordentlige CET-tider, ordentlige fakturaer. Mine medarbejdere glemte, at de ikke var i nabokontoret. Det er hele pitchet.",
-          name:"Dr. Annika R.", role:"COO · Mittelstand-producent · München" },
+        { body:"Vi bytte ut en lokal MSP som fakturerade per ärende. Veritas skickade oss ett team på fyra som lärde sig vår stack på två veckor. Ärendena sjönk med 40 %, för samma personer stänger dem varje morgon.",
+          name:"Henrik Ö.", role:"VD · B2B SaaS · Stockholm" },
+        { body:"Ordentlig tyska, ordentliga CET-tider, ordentliga fakturor. Mina medarbetare glömde att de inte satt i grannkontoret. Det är hela pitchen.",
+          name:"Dr. Annika R.", role:"COO · Mittelstand-tillverkare · München" },
       ],
     },
     faq: {
       eyebrow:"FAQ",
-      h3_a:"Ærlige svar.", h3_b:"Intet sælger-teater.",
-      p:"Hvis noget mangler her, så ring eller skriv — vi svarer i den samme tone, som vi bruger med kunder.",
-      lblUK:"London · Storbritannien", lblMD:"Chișinău · Moldova", lblRO:"Brașov · Rumænien",
+      h3_a:"Ärliga svar.", h3_b:"Ingen säljteater.",
+      p:"Om något saknas här, ring eller skriv — vi svarar i samma ton som vi använder med kunder.",
+      lblUK:"London · Storbritannien", lblMD:"Chișinău · Moldavien", lblRO:"Brașov · Rumänien",
       items: [
-        { q:"Er det outsourcing?",
-          a:"Teknisk ja, praktisk nej. I får et navngivet team, der kun arbejder for jer — ikke en delt kø. De dukker op på jeres Slack, er med til jeres standups, lærer jeres særheder." },
-        { q:"Hvordan er det billigere end en lokal MSP?",
-          a:"Vi er hjemmehørende i Moldova Innovation Technology Park — et 7 %-samlet-skat-regime, lovgivningsmæssigt garanteret frem til 2035. Kombineret med lokale lønninger og lave faste omkostninger er det regnestykket. Vi går ikke på kompromis med, hvem vi ansætter." },
-        { q:"GDPR og data-residens?",
-          a:"Moldova har en EU-tilstrækkelighedsafgørelse under udarbejdelse, og vi opererer allerede i dag under EU-afstemte DPA'er med SCC'er. Data kan blive på EU-infrastruktur efter jeres valg — vi administrerer dem, vi opbevarer dem ikke." },
-        { q:"Hvilke sprog, på hvilket niveau — og hvordan er det verificeret?",
-          a:"Engelsk, tysk og fransk på C1 (flydende); dansk og hollandsk på B2 (forhandlingssikker). Hver ingeniør aflægger en Cambridge Linguaskill- eller EF SET-test før ansættelse — ingen under B2 kommer i kontakt med jeres brugere, og scoren ligger i team-filen. Rumænsk og russisk efter behov." },
-        { q:"Hvordan holder I de samme ingeniører på vores account?",
-          a:"Offentliggjort femtrins karrierestige, anciennitets-bonusser ved 12/24/36 måneder, privat sundhedsforsikring, et dedikeret uddannelsesbudget (AWS-/Azure-certifikater, engelsk-klasser) og hybridarbejde. Frafald holdes i de lave teenagere — ingeniøren, I onboarder næste kvartal, er stadig på jeres account næste år." },
-        { q:"Business continuity — hvad hvis der sker noget i Moldova?",
-          a:"Vi arbejder fra Chișinău men har en dokumenteret failover til vores Brașov-kontor i Rumænien (EU). BCP er skrevet ind i hvert SoW — bliver den primære lokation forstyrret, kører jeres team videre på samme SLA fra den sekundære." },
-        { q:"Hvor hurtigt kan vi starte?",
-          a:"To uger fra underskrevet SoW til et 3-personers team. Fire uger for noget, der involverer M365- eller ERP-tenant-adgang. Runbooks leveres i uge 3." },
-        { q:"Hvad hvis det ikke fungerer?",
-          a:"30 dages opsigelse, ingen exit-gebyrer, fuld overdragelse af tickets, adgangsoplysninger og runbooks. Vi mister hellere en kunde høfligt end beholder én modvilligt." },
+        { q:"Är detta outsourcing?",
+          a:"Tekniskt ja, praktiskt nej. Ni får ett namngivet team som bara jobbar för er — ingen delad kö. De dyker upp i er Slack, deltar i era standups, lär sig era egenheter." },
+        { q:"Hur kan det vara billigare än en lokal MSP?",
+          a:"Vi är inskrivna i Moldova Innovation Technology Park — en 7 %-enhetsskatt, lagstadgat garanterad fram till 2035. Kombinerat med lokala löner och låga omkostnader är det räknestycket. Vi tummar inte på vem vi anställer." },
+        { q:"GDPR och data-residens?",
+          a:"Moldavien har ett EU-tillräcklighetsbeslut under beredning, och vi arbetar redan idag under EU-anpassade DPA:er med SCC:er. Data kan stanna på EU-infrastruktur efter ert val — vi administrerar dem, vi lagrar dem inte." },
+        { q:"Vilka språk, på vilken nivå — och hur är det verifierat?",
+          a:"Engelska, tyska och franska på C1 (flytande); svenska och holländska på B2 (professionell arbetsnivå). Varje ingenjör gör ett Cambridge Linguaskill- eller EF SET-test före anställning — ingen under B2 kommer i kontakt med era användare, och resultatet ligger i team-filen. Rumänska och ryska vid behov." },
+        { q:"Hur håller ni samma ingenjörer på vårt konto?",
+          a:"Publicerad femstegs karriärstege, anställningsbonusar vid 12/24/36 månader, privat sjukförsäkring, en dedikerad utbildningsbudget (AWS-/Azure-certifikat, engelska-kurser) och hybridarbete. Personalomsättningen ligger i låga tioen — ingenjören ni onboardar nästa kvartal är fortfarande på ert konto nästa år." },
+        { q:"Business continuity — vad händer om något inträffar i Moldavien?",
+          a:"Vi arbetar från Chișinău men har en dokumenterad failover till vårt Brașov-kontor i Rumänien (EU). BCP är inskriven i varje SoW — om den primära platsen störs fortsätter ert team med samma SLA från den sekundära." },
+        { q:"Hur snabbt kan vi komma igång?",
+          a:"Två veckor från signerat SoW för ett 3-personers team. Fyra veckor för något som involverar M365- eller ERP-tenant-åtkomst. Runbooks levereras vecka 3." },
+        { q:"Vad händer om det inte fungerar?",
+          a:"30 dagars uppsägning, inga exit-avgifter, full överlämning av ärenden, inloggningar och runbooks. Vi förlorar hellre en kund artigt än behåller någon motvilligt." },
       ],
     },
     onb: {
-      eyebrow:"Kom i gang",
-      h2_a:"Tre uger til et team,", h2_em:"der føles som jeres eget.",
-      stepLbl:"TRIN",
+      eyebrow:"Kom igång",
+      h2_a:"Tre veckor till ett team,", h2_em:"som känns som ert eget.",
+      stepLbl:"STEG",
       steps: [
-        { t:"Afklaring", d:"En 45-minutters samtale om jeres stack og jeres smertepunkter. Ingen præsentation." },
-        { t:"Forslag",   d:"Team-sammensætning, ingeniørprofiler, SoW og SLA'er — inden for 3 arbejdsdage." },
-        { t:"Go-live",   d:"To ugers shadowing, et skriftligt runbook, så overtager jeres team ansvaret." },
+        { t:"Upptäckt", d:"Ett 45-minuters samtal om er stack och era smärtpunkter. Ingen presentation." },
+        { t:"Förslag",  d:"Team-sammansättning, ingenjörsprofiler, SoW och SLA:er — inom 3 arbetsdagar." },
+        { t:"Go-live", d:"Två veckors shadowing, en skriftlig runbook, sedan tar ert team över ansvaret." },
       ],
-      formH:"Fortæl os om din IT-hverdag.",
-      formP:"Ægte svar inden for én arbejdsdag, fra en person fra ét af vores tre kontorer.",
-      lblName:"Dit navn", phName:"Maria Schmidt",
-      lblEmail:"Arbejds-e-mail", phEmail:"maria@virksomhed.com",
-      lblCompany:"Virksomhed", phCompany:"Acme ApS",
-      lblSize:"Virksomhedsstørrelse",
-      lblDelegate:"Hvad ville du uddelegere først?",
-      phDelegate:"En sætning om jeres nuværende setup, hvis du vil.",
-      note:"Ingen autosvar. Menneskeligt svar inden for én arbejdsdag.",
-      send:"Send afsted",
-      thanks:"Tak. Danke. Thanks.",
-      thanksP:"Vi svarer inden for én arbejdsdag fra en navngivet ingeniør — ikke en generisk salgs-inbox.",
+      formH:"Berätta om er IT-vardag.",
+      formP:"Riktigt svar inom en arbetsdag, från en person på ett av våra tre kontor.",
+      lblName:"Ditt namn", phName:"Maria Schmidt",
+      lblEmail:"Arbets-e-post", phEmail:"maria@foretag.com",
+      lblCompany:"Företag", phCompany:"Acme AB",
+      lblSize:"Företagsstorlek",
+      lblDelegate:"Vad skulle du delegera först?",
+      phDelegate:"En mening om er nuvarande setup, om du vill.",
+      note:"Inget autosvar. Mänskligt svar inom en arbetsdag.",
+      send:"Skicka iväg",
+      thanks:"Tack. Danke. Thanks.",
+      thanksP:"Vi svarar inom en arbetsdag från en namngiven ingenjör — inte en generisk säljinbox.",
     },
     foot: {
-      tag:"Nearshore IT-support til europæiske SMV'er. Hjemmehørende i Moldova Innovation Technology Park.",
-      hServices:"Ydelser", hCompany:"Virksomhed", hCall:"Ring til os",
+      tag:"Nearshore IT-support för europeiska SMB-företag. Inskrivna i Moldova Innovation Technology Park.",
+      hServices:"Tjänster", hCompany:"Företag", hCall:"Ring oss",
       svcItems:[
-        {l:"Helpdesk",           h:"#services"},
-        {l:"M365 & Workspace",   h:"#services"},
-        {l:"Netværk & cloud",    h:"#services"},
-        {l:"ERP & interne apps", h:"#services"},
+        {l:"Helpdesk",            h:"#services"},
+        {l:"M365 & Workspace",    h:"#services"},
+        {l:"Nätverk & moln",      h:"#services"},
+        {l:"ERP & interna appar", h:"#services"},
       ],
       coItems:[
-        {l:"Tilgang",        h:"#approach"},
-        {l:"Resultater",     h:"#proof"},
+        {l:"Arbetssätt",     h:"#approach"},
+        {l:"Resultat",       h:"#proof"},
         {l:"Priser",         h:"#pricing"},
-        {l:"Kundeudtalelser", h:"#proof-quotes"},
+        {l:"Kundomdömen",    h:"#proof-quotes"},
         {l:"FAQ",            h:"#faq"},
         {l:"Kontakt",        h:"#contact"},
       ],
-      legal:"GDPR · DPA · SCCs · ISO 27001 (i gang)",
+      legal:"GDPR · DPA · SCC · ISO 27001 (pågår)",
     },
   },
 };
@@ -583,6 +582,10 @@ const LangProvider = ({children}) => {
     setLangRaw(l);
     try { localStorage.setItem("veritasLang", l); } catch(_) {}
   };
+  // Migrate anyone who had "DA" saved from the previous build.
+  React.useEffect(() => {
+    if (lang === "DA") setLang("SV");
+  }, []);
   const t = LOCALES[lang] || LOCALES.EN;
   React.useEffect(() => {
     document.documentElement.lang = t.htmlLang;
@@ -633,11 +636,11 @@ const FLAG_SVGS = {
       <rect y="26.66" width="60" height="13.34" fill="#FFCE00"/>
     </svg>
   ),
-  DK: (
+  SE: (
     <svg viewBox="0 0 60 40" preserveAspectRatio="none">
-      <rect width="60" height="40" fill="#C8102E"/>
-      <rect x="20" width="6" height="40" fill="#fff"/>
-      <rect y="17" width="60" height="6" fill="#fff"/>
+      <rect width="60" height="40" fill="#006AA7"/>
+      <rect x="18" width="6" height="40" fill="#FECC00"/>
+      <rect y="17" width="60" height="6" fill="#FECC00"/>
     </svg>
   ),
   NL: (
@@ -741,7 +744,7 @@ const HeroVisual = () => {
   const ctx = (typeof useLang === "function") ? useLang() : null;
   const chips = (ctx && ctx.t && ctx.t.heroChips) || [
     {city:"Berlin", text:"ticket resolved · 2m"},
-    {city:"Copenhagen", text:"M365 sync"},
+    {city:"Stockholm", text:"M365 sync"},
     {city:"Amsterdam", text:"all clear"},
   ];
   return (
@@ -796,7 +799,7 @@ const HeroVisual = () => {
       {/* nodes at cardinal points */}
       {[
         {x:250,y:60,  l:"DE"},
-        {x:430,y:230, l:"DK"},
+        {x:430,y:230, l:"SE"},
         {x:250,y:430, l:"UK"},
         {x:70, y:230, l:"NL"},
         {x:380,y:110, l:"AT"},
@@ -872,7 +875,7 @@ const Nav = () => {
         </div>
         <div className="nav-cta">
           <div className="lang-switch">
-            {["EN","DE","DA"].map(l=>(
+            {["EN","DE","SV"].map(l=>(
               <button key={l} className={l===lang?"active":""} onClick={()=>setLang(l)}>{l}</button>
             ))}
           </div>
@@ -898,7 +901,7 @@ const Nav = () => {
             <a href="#faq" onClick={close}>{t.nav.faq}</a>
           </div>
           <div className="nav-drawer-langs">
-            {["EN","DE","DA"].map(l=>(
+            {["EN","DE","SV"].map(l=>(
               <button key={l} className={l===lang?"active":""} onClick={()=>setLang(l)}>{l}</button>
             ))}
           </div>
