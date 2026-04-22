@@ -590,6 +590,8 @@ html[lang="sv"] .hero h1 em{
 
 .onb-submit{margin-top:12px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 .onb-submit .note{color:#8fa0b8}
+.onb-submit .btn-primary[disabled]{opacity:.55;cursor:wait}
+.onb-error{margin-top:12px;padding:12px 14px;border:1px solid #7a2b2b;background:#2a1414;color:#ffb4b4;border-radius:6px;font-size:12.5px}
 .onb-section .btn-primary{background:var(--accent);color:#fff}
 .onb-section .btn-primary:hover{background:#fff;color:var(--ink)}
 
