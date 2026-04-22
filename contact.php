@@ -22,7 +22,7 @@
 // ----- CONFIG ---------------------------------------------------------------
 const TO_EMAIL   = 'info@veritascode.net';
 const FROM_EMAIL = 'no-reply@veritascode.net'; // must be on a domain you own
-const FROM_NAME  = 'Veritas Code website';
+const FROM_NAME  = 'Veritas Code website form';
 // ----------------------------------------------------------------------------
 
 header('Content-Type: application/json; charset=utf-8');
