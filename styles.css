@@ -204,11 +204,29 @@ em{font-style:italic;color:var(--accent)}
   -webkit-background-clip:text;background-clip:text;color:transparent;
   padding-right:.12em;margin-right:-.12em;
 }
-/* EN headline is short and fits at the base --h1. DE and DA phrases are 25–40%
+/* EN headline is short and fits at the base --h1. DE and SV phrases are 25–40%
    longer per line — instead of wrapping into extra lines we scale the headline
    down so the same 3-line silhouette as EN is preserved at all breakpoints. */
 html[lang="de"] .hero h1{ font-size: calc(var(--h1) * 0.82); max-width: 22ch; }
-html[lang="da"] .hero h1{ font-size: calc(var(--h1) * 0.70); max-width: 26ch; }
+html[lang="sv"] .hero h1{ font-size: calc(var(--h1) * 0.88); max-width: 22ch; }
+
+/* When the italic <em> wraps across multiple lines (DE "gleich / jenseits der",
+   SV cases), background-clip:text clips the gradient to each glyph's box and
+   italic tail strokes overhang past that box — so the right edge of every
+   wrapped line renders a few pixels short. padding-right / box-decoration-break
+   can't extend the text-clipped fill. Simplest robust fix: drop the gradient
+   clip on DE/SV and use a solid accent color, which has no per-glyph clipping
+   surface so italic overhangs render in full. */
+html[lang="de"] .hero h1 em,
+html[lang="sv"] .hero h1 em{
+  background: none;
+  -webkit-background-clip: border-box;
+          background-clip: border-box;
+  -webkit-text-fill-color: var(--accent-ink);
+  color: var(--accent-ink);
+  padding-right: 0;
+  margin-right: 0;
+}
 .hero-sub{
   margin-top:36px;font-size:var(--lead);line-height:1.5;
   color:var(--ink-2);max-width:52ch;text-wrap:pretty;
@@ -260,7 +278,7 @@ html[lang="da"] .hero h1{ font-size: calc(var(--h1) * 0.70); max-width: 26ch; }
 }
 .hv-chip b{color:var(--ink);font-weight:600;margin-right:2px}
 /* No negative-left overhang: the chips used to stick ~6% out of the hero-visual column
-   and cover the last word of the left-column h1 on longer languages (DE "gleich", DA "den"). */
+   and cover the last word of the left-column h1 on longer languages (DE "gleich", SV "över"). */
 .hv-chip-1{top:8%;left:2%;animation-delay:0s;z-index:1}
 .hv-chip-2{bottom:18%;left:2%;animation-delay:1.5s;z-index:1}
 .hv-chip-3{top:40%;right:-4%;animation-delay:3s;z-index:1}
